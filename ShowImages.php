@@ -316,8 +316,12 @@ else
                     </section>
                   </div>
                 </div>
-             <script src="dist/sidebar-menu.js"></script>
-  <script>
-    $.sidebarMenu($('.sidebar-menu'))
+           
             </body>
             </html>
+
+            <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script src="./dist/sidebar-menu.js"></script>
+  <script>
+    $.sidebarMenu($('.sidebar-menu'))
+  </script>

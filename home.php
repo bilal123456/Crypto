@@ -824,7 +824,7 @@ else
 
 ?>
 
-                                            <h3 class="no-margin text-bold" style="color: #ef5350"><?php echo $package; ?> Package</h3>
+                                            <h3 class="no-margin text-bold" style="color: #03a9f3"><?php echo $package; ?> Package</h3>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
@@ -922,7 +922,7 @@ else
                                             </a>
                                         </div>
                                         <div>
-                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #ef5350;">Daily Roi Income</a></h4>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #03a9f3;">Daily Roi Income</a></h4>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
@@ -953,7 +953,7 @@ else
                                             </a>
                                         </div>
                                         <div>
-                                            <h3 class="no-margin text-bold" style="color: #ef5350;">Available Balance</h3>
+                                            <h3 class="no-margin text-bold" style="color: #03a9f3;">Available Balance</h3>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">

@@ -14,7 +14,7 @@ $id = $_SESSION['id'];
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>FXTRADING CORP.</title>
+        <title>US Crypto Stock</title>
         <link rel="icon" href="/static/assets/img/favicon.d1b45b458ef6.png" />
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.d59729439a20.css">
@@ -317,3 +317,10 @@ $id = $_SESSION['id'];
               </body>
             </body>
             </html>
+
+
+            <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script src="./dist/sidebar-menu.js"></script>
+  <script>
+    $.sidebarMenu($('.sidebar-menu'))
+  </script>

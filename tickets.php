@@ -273,19 +273,111 @@ else
     </ul>
   </section>
         </aside>
-        
 
-        <div class="row">
-          <div class="col-lg-6 col-md-offset-3" style="position: relative;left: 260px;">
-            <table class="table table-bordered table-striped" style="background-color: white;">
-              <tr>
-                <td>S.No</td>
-                <td>Subject</td>
-                <td>Date Creted</td>
-                <td>status</td>
-                <td>View</td>
-              </tr>
-              <?php 
+
+
+
+
+
+
+
+
+
+                            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                      Your Tickets
+                       
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">
+                            <i class="fa fa-dashboard"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item active"></li>
+                    </ol>
+                </section>
+
+
+                <div class="content">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="box box-solid bg-black">
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-sm-12">
+                                                        <div class="well pull-right">
+                                                             
+                                                            <form action="" method="get" class="form form-inline">
+                                                                
+                         
+
+                                                            </form>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+
+
+<div class="table-container table-responsive">
+    
+    
+        <table class="table">
+            
+            
+                <thead>
+                    <tr>
+                    
+                        <th class="orderable">
+                            
+                                <a href="?sort=description">S.NO</a>
+                            
+                        </th>
+                    
+                        <th class="orderable desc">
+                            
+                                <a href="?sort=date">Subject</a>
+                            
+                        </th>
+                    
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">Date</a>
+                            
+                        </th>
+                    
+
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">Status</a>
+                            
+                        </th>
+                    
+
+
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">View</a>
+                            
+                        </th>
+                    
+                    </tr>
+                </thead>
+            
+            
+            
+                <tbody>
+
+                    <?php 
                 $selectdata  =  "SELECT c.id,title,datedetail,status FROM `contact` c inner join customer d on c.customerid = d.id where c.customerid  = '".$id."'";
                 $run = mysqli_query($link,$selectdata);
                 if(mysqli_num_rows($run)>0)
@@ -299,8 +391,8 @@ else
                     $title = $row['title']
                   
                     ?>
-              <tr>
-                <td><?php echo $i++; ?></td>
+   <tr data-status="in" class="even" style="background-color: #20c997;color: white;">
+  <td><?php echo $i++; ?></td>
                 <td><?php echo $title; ?></td>
                 <td><?php echo $datedetail; ?></td>
                 <td><?php echo $pending; ?></td>
@@ -315,15 +407,29 @@ else
                 }
               
               ?>
-            </table>
-          </div>
-        </div>
+              
+                </tbody>
+              </table>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
 
 
 
 
 
-      </div>
+
+
+        
+
 
 
     <script src="/static/assets/vendor_components/jquery/dist/jquery.min.473957cfb255.js" type="text/javascript"></script>

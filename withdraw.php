@@ -274,7 +274,7 @@ else
   </section>
         </aside>
         
-        
+  <input type="hidden" name="customerid" value="<?php echo $id; ?>" id="customerid">      
            
           
 <?php
@@ -312,7 +312,7 @@ if(mysqli_num_rows($run)>0)
                         
                         <div class="row">
                             <div class="col-6">
-                                         <form method="post" class="form-signin" enctype="multipart/form-data">                  
+                                                      
                                 <div class="box box-solid bg-dark">
                                     <!-- /.box-header -->
                                     <div class="box-body">
@@ -323,16 +323,16 @@ if(mysqli_num_rows($run)>0)
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-12">
                                             <p></p><h4>Payment Discount: <spam class="badge badge-default">6%</spam></h4><p></p>
-                                            <span id="message"></span>
+                                            <span id="succussmeage"></span>
                                             </div>
                                             <div class="col-lg-6 col-sm-12">
                                                 <p></p><h4>Last Withdrawal: <spam class="badge badge-default">June 28, 2019, 10:52 p.m.</spam></h4><p></p>
                                             </div>
                                         </div>
-
+<span id="success_message"></span>
                                          <div class="form-label-group">
                  <label for="inputEmail">Bitcoin Address</label>
-                <input name="baddress" type="text" id="inputEmail" class="form-control form-input" placeholder="Bitcoin Address" required autofocus>
+                <input name="baddress" type="text" id="bitcoin" class="form-control form-input" placeholder="Bitcoin Address" required autofocus>
                
               </div>
 <label for="inputPassword">Amount</label>
@@ -354,7 +354,7 @@ if(mysqli_num_rows($run)>0)
                                       
                                        <br>
                                           
-                                            <button type="button" name="Withdrawbtn" id="btn-confirm"   class="btn btn-block btn-success btn-lg">WITHDRAWAL</button>
+                                            <button type="withdraw" name="Withdrawbtn" id="btn-confirm"   class="btn btn-block btn-success btn-lg">WITHDRAWAL</button>
                                        
                                     </div>
                                     <!-- /.box-body -->
@@ -364,7 +364,7 @@ if(mysqli_num_rows($run)>0)
                             
                             <div class="col-6" >                            
                                 <div class="alert alert-danger  alert-with-icon" data-notify="container" style="background-color: #ef5350;">
-                                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="X">
+                                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert">
                                        
                                     </button>
                                     <span data-notify="message"><b>WITHDRAWAL INFORMATION</b>
@@ -385,98 +385,11 @@ if(mysqli_num_rows($run)>0)
 
 
 
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Comfirm</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" name="withdraw" class="btn btn-default" id="modal-btn-si">Yes</button>
-        <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="alert" role="alert" id="result"></div>
  </form>
 
-<script type="text/javascript">
-  var modalConfirm = function(callback){
-  
-  $("#btn-confirm").on("click", function(){
-    $("#mi-modal").modal('show');
-  });
 
-  $("#modal-btn-si").on("click", function(){
-    callback(true);
-    $("#mi-modal").modal('hide');
-  });
-  
-  $("#modal-btn-no").on("click", function(){
-    callback(false);
-    $("#mi-modal").modal('hide');
-  });
-};
-
-modalConfirm(function(confirm){
-  if(confirm){
-    //Acciones si el usuario confirma
-    $("#result").html("CONFIRMADO");
-  }else{
-    //Acciones si el usuario no confirma
-    $("#result").html("NO CONFIRMADO");
-  }
-});
-  
-</script>
-
-          <?php 
-
-          if(isset($_POST['withdraw']))
-          {
-          	
-         
-            $Amount = $_POST['Amount'];
-            $statu = $_POST['statu'];
-            $date = date("Y/m/d");
-            $address = $_POST['baddress'];
-    //  $image_temp =  $_FILES['img']['tmp_name'];
-    // $image_type = $_FILES['img']['type'];
-    // $image_name = $_FILES['img']['name'];
-      $send = $_POST['Withdo'];
-
-
-            
-//              $upload = move_uploaded_file($_FILES["img"]["tmp_name"],'Customerdepositreceipt/' . $_FILES['img']['name']);
-
-
-// $imgname = "Customerdepositreceipt/" . $image_name;
-      $checktoday = date('l');
-if($checktoday == 'Sunday')
-{
-?>
-<script type="text/javascript">
- 
-
-      $('#nowithdraw').append("No Withdrawal Saturday and Sunday");
-      $("#nowithdraw").css("color", "red");
-
-</script>
-<?php
-}
-else if($checktoday == 'Saturday')
-{
-  ?>
-<script type="text/javascript">
- 
-    $('#nowithdraw').append("No Withdrawal Saturday and Sunday");
-     $("#nowithdraw").css("color", "red");
-
-
-</script>
 
   <script src="/static/assets/vendor_components/jquery/dist/jquery.min.473957cfb255.js" type="text/javascript"></script>
        
@@ -498,29 +411,7 @@ else if($checktoday == 'Saturday')
     $.sidebarMenu($('.sidebar-menu'))
   </script>
 </html>
-<?php
-}
-else
-{
-
-
-
-              $insert = "insert into customer_withdraw(customerid,bitcoinaddress,amount,status,todaydate,send) values('".$id."','".$address."','".$Amount."','0','".$date."','".$send."')";
-            $run = mysqli_query($link,$insert);
-
-
-           
-
-            }
-
-
-          }
-
-           
-          
-
-
-          ?>    
+   
            
 
 
@@ -544,6 +435,8 @@ else
 
 
 
+ <input type="hidden" value="<?php echo  date("Y/m/d"); ?>" id="date">
+  <input type="hidden" value="<?php echo  date("l"); ?>" id="today">
 
     
     <link rel="stylesheet" type="text/css" href="/static/session_security/style.8908ffb3a65a.css"></body>
@@ -554,11 +447,43 @@ else
   <script src="./dist/sidebar-menu.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+
+
+          $('#btn-confirm').click(function(){
+            var customerid = $('#customerid').val();
+            var bitcoin = $('#bitcoin').val();
+            var amount = $('#amount').val();
+
+            var witdraw = $('#witdraw').val();
+            var status = 0;
+            var todaydate = $('#date').val();
+            var today = $('#today').val();
+            $.ajax({
+              url:"withdrawrequest.php",
+              method:"post",
+              data:{customerid:customerid,bitcoin:bitcoin,witdraw:witdraw,status:status,todaydate:todaydate,today:today,amount:amount},
+              success:function(data)
+              {
+                console.log(data);
+                alert(data);
+                $('#success_message').html(data);
+                $('#success_message').css('color','red');
+              }
+            })
+
+
+
+
+          });
+
+
+
          // $('#nowithdraw').hide();
           
 
             $(document).on('keyup','#amount',function(){
                var id =  $(this).val();
+
 //               alert(id);
 
               var availablebalance =  $('#availablebalancestore').val();
@@ -584,7 +509,9 @@ else
             });
         });
     </script>
-     <script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  
+  <script>
     $.sidebarMenu($('.sidebar-menu'))
   </script>
 </body>
