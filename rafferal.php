@@ -292,19 +292,90 @@ include('Admin/Database/Connection.php');
 
 
 ?>
-              
-     <div class="form-group col-lg-6 col-md-offset-6" style="position: relative;top: 50px;left: 250px;">
+
+
+
+
+
+
+
+
+ <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+           <h2>Rafferal/Invitation Link</h2>    
+                                
+     <div class="form-group col-lg-6 col-md-offset-6">
     <label for="exampleInputEmail1" style="color: white;">Invitation / Rafferal Link</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="http://localhost/crypto/Signup.php?ref=<?php echo $username; ?>">
     <br>
-      <table class="table table-bordered"  style="position: relative;top: 50px;left:150px;background: white;">
-<tr>    
-    <th>S.NO</th>
-    <th>date</th>
-    <th>Name</th>
 
-</tr>
-        <?php 
+
+  </div>
+                
+
+
+                <div class="content">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="box box-solid bg-black">
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-sm-12">
+                                                        <div class="well pull-right">
+                                                             
+                                                            <form action="" method="get" class="form form-inline">
+                                                                
+                         
+
+                                                            </form>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+
+
+<div class="table-container table-responsive">
+    
+    
+        <table class="table">
+            
+            
+                <thead>
+                    <tr>
+                    
+                        <th class="orderable">
+                            
+                                <a href="?sort=description">S.No</a>
+                            
+                        </th>
+                    
+                        <th class="orderable desc">
+                            
+                                <a href="?sort=date">Date</a>
+                            
+                        </th>
+                    
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">Name</a>
+                            
+                        </th>
+                    
+                    </tr>
+                </thead>
+            
+            
+            
+                <tbody>
+                
+ <?php 
             $collectrafferal = "SELECT * FROM `rafferal` where rafferalunderusername='".$username."'";
             $runrafferal = mysqli_query($link,$collectrafferal);
             if(mysqli_num_rows($runrafferal)>0)
@@ -314,7 +385,7 @@ include('Admin/Database/Connection.php');
                 {
 
                ?>
-    <tr>    
+   <tr data-status="in" class="even" style="background-color: #20c997;color: white;"> 
         <td><?php echo $i++; ?></td>
             <td><?php echo $row['todaydate']; ?></td>
             <td><?php echo $row['newregisterusername']; ?></td>
@@ -331,9 +402,75 @@ include('Admin/Database/Connection.php');
 
      
 ?>
-  </table>
+                    
+                   
+    
+                    
+             
+                       
+                </tbody>
+            
+            
+            
+            
+        </table>
+    
+    
 
-  </div>
+    
+    
+   
+        
+    
+    
+</div>
+
+
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main content -->
+               
+  
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
            

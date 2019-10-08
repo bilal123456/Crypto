@@ -323,6 +323,7 @@ if(mysqli_num_rows($run)>0)
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-12">
                                             <p></p><h4>Payment Discount: <spam class="badge badge-default">6%</spam></h4><p></p>
+                                            <span id="message"></span>
                                             </div>
                                             <div class="col-lg-6 col-sm-12">
                                                 <p></p><h4>Last Withdrawal: <spam class="badge badge-default">June 28, 2019, 10:52 p.m.</spam></h4><p></p>
@@ -353,8 +354,8 @@ if(mysqli_num_rows($run)>0)
                                       
                                        <br>
                                           
-                                            <button type="submit" name="Withdraw"  class="btn btn-block btn-success btn-lg">WITHDRAWAL</button>
-                                        </form>
+                                            <button type="button" name="Withdrawbtn" id="btn-confirm"   class="btn btn-block btn-success btn-lg">WITHDRAWAL</button>
+                                       
                                     </div>
                                     <!-- /.box-body -->
                                 </div>
@@ -362,7 +363,7 @@ if(mysqli_num_rows($run)>0)
                             </div>
                             
                             <div class="col-6" >                            
-                                <div class="alert alert-danger  alert-with-icon" data-notify="container" style="background-color: #03a9f3;">
+                                <div class="alert alert-danger  alert-with-icon" data-notify="container" style="background-color: #ef5350;">
                                     <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="X">
                                        
                                     </button>
@@ -382,9 +383,59 @@ if(mysqli_num_rows($run)>0)
                 </div>
             </div>
 
+
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Comfirm</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="withdraw" class="btn btn-default" id="modal-btn-si">Yes</button>
+        <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert" role="alert" id="result"></div>
+ </form>
+
+<script type="text/javascript">
+  var modalConfirm = function(callback){
+  
+  $("#btn-confirm").on("click", function(){
+    $("#mi-modal").modal('show');
+  });
+
+  $("#modal-btn-si").on("click", function(){
+    callback(true);
+    $("#mi-modal").modal('hide');
+  });
+  
+  $("#modal-btn-no").on("click", function(){
+    callback(false);
+    $("#mi-modal").modal('hide');
+  });
+};
+
+modalConfirm(function(confirm){
+  if(confirm){
+    //Acciones si el usuario confirma
+    $("#result").html("CONFIRMADO");
+  }else{
+    //Acciones si el usuario no confirma
+    $("#result").html("NO CONFIRMADO");
+  }
+});
+  
+</script>
+
           <?php 
 
-          if(isset($_POST['Withdraw']))
+          if(isset($_POST['withdraw']))
           {
           	
          
@@ -456,6 +507,8 @@ else
 
               $insert = "insert into customer_withdraw(customerid,bitcoinaddress,amount,status,todaydate,send) values('".$id."','".$address."','".$Amount."','0','".$date."','".$send."')";
             $run = mysqli_query($link,$insert);
+
+
            
 
             }
@@ -509,11 +562,13 @@ else
 //               alert(id);
 
               var availablebalance =  $('#availablebalancestore').val();
-         
+              alert(id);
+              alert(availablebalance);
                
                 if(id > availablebalance)
                 {
                      $('#witdraw').hide();
+                     $('#withdraw').val("");
                }else {
                  $('#witdraw').show();
                // alert(id); alert(availablebalance);

@@ -274,25 +274,104 @@ else
   </section>
         </aside>
         
-        
-    <div class="wrapper">
-     
 
 
-         
-<div class="container">
-  <div class="col-lg-6">
-    <table style="position: relative;top: 50px;left: 300px;background-color: white;" class="table table-striped">
-                  <tr>
-                    <th>S.No</th>
-                    <th>Date</thead>
-                      <th>amount</th>
-                    <th>Bitcoin Address</th>
+
+
+                    <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                       Daily Roi History
+                       
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">
+                            <i class="fa fa-dashboard"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </section>
+
+
+                <div class="content">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="box box-solid bg-black">
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-sm-12">
+                                                        <div class="well pull-right">
+                                                             
+                                                            <form action="" method="get" class="form form-inline">
+                                                                
+                         
+
+                                                            </form>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+
+
+<div class="table-container table-responsive">
+    
+    
+        <table class="table">
+            
+            
+                <thead>
+                    <tr>
                     
-                   <th>status</th>
-                  </tr>
+                        <th class="orderable">
+                            
+                                <a href="?sort=description">S.NO</a>
+                            
+                        </th>
+                    
+                        <th class="orderable desc">
+                            
+                                <a href="?sort=date">Date</a>
+                            
+                        </th>
+                    
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">Amount</a>
+                            
+                        </th>
+                    
 
-                  <tr>
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">BitCoin Address </a>
+                            
+                        </th>
+                    
+
+
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">Status</a>
+                            
+                        </th>
+                    
+                    </tr>
+                </thead>
+            
+            
+            
+                <tbody>
+
                     <?php
                     $sql = "select * from customer_withdraw where customerid='".$id."'";
                     $run = mysqli_query($link,$sql);
@@ -302,7 +381,7 @@ else
                         while($row=mysqli_fetch_assoc($run))
                         {
                             ?>
-
+     <tr data-status="in" class="even" style="background-color: #20c997;color: white;">
                             <td><?php echo $i++; ?></td>
                              <td><?php echo $row['todaydate']?></td>
                               <td><?php echo $row['amount'] ?></td>
@@ -319,17 +398,22 @@ else
 
 
                     ?>
+
+                </tbody>
               </table>
+            </div>
 
-                
-              <?php 
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
 
-              ?>
- 
-</div>
 
-
-    </div>
     
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->

@@ -2,8 +2,16 @@
 <html>
 <?php session_start();
 include('Admin/Database/Connection.php');
-$email = $_SESSION['email'];
-$id = $_SESSION['id'];
+if($email = $_SESSION['email'])
+{
+  $id = $_SESSION['id'];
+}
+else
+{
+  header("Location:login.html");
+}
+
+
 ?>
 <html lang="en">
     <head>
@@ -14,7 +22,7 @@ $id = $_SESSION['id'];
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>FXTRADING CORP.</title>
+        <title>Us Crypto Stock</title>
         <link rel="icon" href="/static/assets/img/favicon.d1b45b458ef6.png" />
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.d59729439a20.css">
@@ -33,7 +41,7 @@ $id = $_SESSION['id'];
       <script type="text/javascript" src="css/api.js"></script>
       <link rel="stylesheet" type="text/css" href="css/jquery.loading.ca1694f83fd1.css">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="./dist/sidebar-menu.css">
+  <link rel="stylesheet" href="dist/sidebar-menu.css">
        
 <style>
 .custom-overlay {
@@ -86,7 +94,6 @@ $id = $_SESSION['id'];
 }
 
 
-  <link rel="stylesheet" href="./dist/sidebar-menu.css">
 </style>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -112,8 +119,9 @@ $id = $_SESSION['id'];
 
     </head>
 
-    <body>
+
 <body class="hold-transition skin-green">
+        
         
         
 
@@ -308,6 +316,8 @@ $id = $_SESSION['id'];
                     </section>
                   </div>
                 </div>
-              </body>
+             <script src="dist/sidebar-menu.js"></script>
+  <script>
+    $.sidebarMenu($('.sidebar-menu'))
             </body>
             </html>

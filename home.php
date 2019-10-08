@@ -824,7 +824,7 @@ else
 
 ?>
 
-                                            <h3 class="no-margin text-bold" style="color: #03a9f3;"><?php echo $package; ?> Package</h3>
+                                            <h3 class="no-margin text-bold" style="color: #ef5350"><?php echo $package; ?> Package</h3>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
@@ -879,9 +879,9 @@ $run  = mysqli_query($link,$insertsss);
 
 
 
-echo "<script>alert($newdailyroidadd)</script>";
-        echo "<script>alert($updatestartdae)</script>";
-        echo "<script>alert($insertsss)</script>";
+// echo "<script>alert($newdailyroidadd)</script>";
+//         echo "<script>alert($updatestartdae)</script>";
+//         echo "<script>alert($insertsss)</script>";
 
     }
 
@@ -912,7 +912,7 @@ else
                             </div>
                         </div>
 
-                         <div class="col-lg-4 col-md-6">
+                         <div class="col-lg-4 col-md-6" id="nextpage">
                             <div class="box pull-up" id="boxBalance">
                                 <a href=""><div class="box-body">
                                     <div class="media align-items-center p-0">
@@ -922,7 +922,7 @@ else
                                             </a>
                                         </div>
                                         <div>
-                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #03a9f3;">Daily Roi Income</a></h4>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #ef5350;">Daily Roi Income</a></h4>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
@@ -953,7 +953,7 @@ else
                                             </a>
                                         </div>
                                         <div>
-                                            <h3 class="no-margin text-bold" style="color: #03a9f3;">Available Balance</h3>
+                                            <h3 class="no-margin text-bold" style="color: #ef5350;">Available Balance</h3>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
@@ -1293,6 +1293,12 @@ if(mysqli_num_rows($runsql)>0)
   direction: 'left',
   speed:20,
 });
+
+      $('#nextpage').click(function(e)
+    {
+
+window.location.href = "DailyRoiHistory.php";
+    });
       });
 
 

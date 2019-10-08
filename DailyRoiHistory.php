@@ -281,8 +281,8 @@ else
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                       Daily Roi History
+                       
                     </h1>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
@@ -293,17 +293,69 @@ else
                     </ol>
                 </section>
 
-                <!-- Main content -->
-                <section class="content">
 
-                  <table class="table table-striped table-bordered" style="background-color: #9eba46;color: black;">
+                <div class="content">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="box box-solid bg-black">
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-sm-12">
+                                                        <div class="well pull-right">
+                                                             
+                                                            <form action="" method="get" class="form form-inline">
+                                                                
+                         
+
+                                                            </form>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+
+
+<div class="table-container table-responsive">
+    
+    
+        <table class="table">
+            
+            
+                <thead>
                     <tr>
-                      <td>Daily Roi</td>
-                      <td>Date</td>
-                      <td>Profit</td>
+                    
+                        <th class="orderable">
+                            
+                                <a href="?sort=description">Description</a>
+                            
+                        </th>
+                    
+                        <th class="orderable desc">
+                            
+                                <a href="?sort=date">Date</a>
+                            
+                        </th>
+                    
+                        <th class="orderable">
+                            
+                                <a href="?sort=amount">Amount</a>
+                            
+                        </th>
+                    
                     </tr>
-                    <?php 
-                    $limit = 1;
+                </thead>
+            
+            
+            
+                <tbody>
+                 <?php 
+                    $limit = 30;
                     $page = isset($_GET['page']) ? $_GET['page'] : 1;
                     if($page == 0) {
                     echo $page =1;
@@ -320,13 +372,20 @@ else
 
 
                           ?>
-                          <tr>
-                            <td><?php echo $row['addroi'] ?></td>
-                            <td><?php echo $row['current_date'] ?></td>
+                      
+
+                    
+                    <tr data-status="in" class="even" style="background-color: #20c997;color: white;">
+                        
+                            <td>Daily Roi</td>
+                        
+                            <td><?php echo $row['current_date'] ?> 11:59 p.m.</td>
+                        
                             <td><?php echo $row['dailyroiadd'] ?></td>
-
-
-                          </tr>
+                        
+                    </tr>
+                    
+             
                           <?php
                         }
                       }
@@ -334,6 +393,24 @@ else
                       {
                         echo "<tr><td colspan='3' style='text-align: center;'>no record</td></tr>";
                       }
+                   ?> 
+                
+                </tbody>
+            
+            
+            
+            
+        </table>
+    
+    
+
+    
+    
+    
+        <nav aria-label="Table navigation">
+            <ul class="pagination">
+            
+              <?php
 
                       $result = "SELECT count(id) as c FROM `dailyroi` where customerid='".$id."'";
                       $runresult = mysqli_query($link,$result);
@@ -359,29 +436,43 @@ else
                         }
                          $next = $page +1;
                        ?>
-                  </table>
-
-                  <div class="container well">
-                    
-                    <div class="row">
-                      <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                          <li> <a href="DailyRoiHistory.php?page=<?php  echo $previous; ?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;Previous</span>
-                          </a>
-                        </li>
-                            <?php for($i=1;$i<$pages;$i++) {?>
+                 <?php for($i=1;$i<$pages;$i++) {?>
 
                               <li><a id="try" href="DailyRoiHistory.php?page=<?php if($page>0){ echo $i;} ?>"><?php echo $i; ?></a></li>
                                 <?php } ?>
 
-                                <li> <a href="DailyRoiHistory.php?page=<?php echo $next; ?>" aria-label="Next">
-                            <span aria-hidden="true">&laquo;Next</span>
-                          </a>
+                              
+                    
+                        <li class="active">
+                            
+                                <a href="DailyRoiHistory.php?page=<?php echo $next; ?>">
+                                    Next
+                                </a>
+                            
                         </li>
-                        </ul>
-                      </nav>
+                  
+            
+            </ul>
+        </nav>
+        
+    
+    
+</div>
+
+
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Main content -->
+               
   
 <?php
  }
@@ -390,15 +481,6 @@ else
                     ?>
                 </section>
 
-                <script type="text/javascript">
-                  $(document).ready(function(e){
-                    alert("ok");
-                    $('#try').click(function(e){
-                      alert('enter');
-                      $('#try').append("class='active'");
-                    })
-                  })
-                </script>
-
+              
 </body>
 </html>
