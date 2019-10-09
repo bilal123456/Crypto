@@ -63,10 +63,12 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    $mail->SMTPDebug = 4;                      // Enable verbose debug output
+    $mail->SMTPDebug = 2;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->SMTPAuth   = true; 
+     $mail->SMTPSecure = "tls";
+    $mail->CharSet = "UTF-8";                                  // Enable SMTP authentication
     $mail->Username   = 'bilalraza203@gmail.com';                     // SMTP username
     $mail->Password   = 'king5872123';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
