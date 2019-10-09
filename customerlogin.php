@@ -74,8 +74,9 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
     $mail->Port       = 587;                                    // TCP port to connect to
 
+$companyemail = "bilalraza203@gmail.com";
     //Recipients
-    $mail->setFrom('bilalraza203@gmail.com', 'Professional');
+    $mail->setFrom($companyemail, 'Crypto STock');
     $mail->addAddress('bilalraza203@gmail.com', 'user email');     // Add a recipient
     $mail->addAddress('ellen@example.com');               // Name is optional
     $mail->addReplyTo('bilalraza203@gmail.com', 'Information');
@@ -88,8 +89,9 @@ try {
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Please Click here the link below';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->Subject = 'Crypto Stock Email Verification';
+    $mail->Body    = 'Click Here for this Link <br>
+    <a href="http://localhost/crypto/verify.php?vkey='.$vkey.'">Activate Account</a>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
@@ -113,6 +115,9 @@ try {
 			$_SESSION['id']   = $id;
 		}
 	}
+	echo "<script>
+	 window.location.href = 'Thankyou.php?username=$username&email=$email';
+	</script>";
 
 		//header("Location:home.php");
 	}
