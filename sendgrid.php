@@ -1,5 +1,6 @@
 <?php 
 
+
 $email = "bilalraza203@gmail.com";
 $name = "Muhammad Bilal";
 $body = "doneu";
@@ -8,7 +9,11 @@ $subject = "test";
 $headers = array(
 
 	"Authorization: Bearer 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",
-	'Content-Type: application/json'
+	'Content-Type: application/json',
+	
+
+
+
 );
 
 $data = array(

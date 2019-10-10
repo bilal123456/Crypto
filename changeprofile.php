@@ -72,7 +72,7 @@ else
 
     </head>
 
-    <body>
+ 
 <body class="hold-transition skin-green">
         
         
@@ -244,7 +244,7 @@ $sql = "select * from customer where email='".$email."' limit 1";
 <div class="content-wrapper" style="min-height: 699.875px;">
                 <div class="content">
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="row" style="position: relative;left: 200px;top: 50px;">
                             <div class="col-8">
                                 <div class="box box-solid bg-black">
                                     <div class="box-header with-border">
@@ -279,6 +279,13 @@ $sql = "select * from customer where email='".$email."' limit 1";
                                                     <div class="col-sm-10">
                                                     <input type="email" name="email" value="<?php echo 
                                                     $email; ?>"  class="form-control"  placeholder="User Email" required="" id="id_useremail">
+                                                    
+                                                    </div>
+                                                </div>
+                                                  <div class="form-group row">
+                                                    <label class="col-sm-2 col-form-label">BTC Adress</label>
+                                                    <div class="col-sm-10">
+                                                    <input type="text" name="bitcoinaddress"  class="form-control" value="<?php echo $bitcoinaddress; ?>" id="id_useremail">
                                                     
                                                     </div>
                                                 </div>
@@ -320,8 +327,9 @@ $sql = "select * from customer where email='".$email."' limit 1";
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
+            $btc  = $_POST['bitcoinaddress'];
             
-            $update = "update customer set username='".$username."',firstname='".$firstname."',lastname='".$lastname."',email='".$email."' where id='".$id."'";
+            $update = "update customer set username='".$username."',firstname='".$firstname."',lastname='".$lastname."',email='".$email."',bitcoinaddress='".$btc."' where id='".$id."'";
             $rupdate = mysqli_query($link,$update);
             
                

@@ -1086,7 +1086,7 @@ if(mysqli_num_rows($runsql)>0)
                                   <div class="box-header">
                                     <h4 class="box-title">Tutorials and Materials</h4>
                                     <div class="box-controls pull-right">
-                                      <a class="btn btn-sm btn-info" href="Materials.php">Click here</a>
+                                      <a class="btn btn-sm btn-info" href="ShowVedio.php">Click here</a>
                                     </div>
                                   </div>
 

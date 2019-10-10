@@ -302,11 +302,12 @@ include('Admin/Database/Connection.php');
 
  <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-           <h2>Rafferal/Invitation Link</h2>    
+       
                                 
      <div class="form-group col-lg-6 col-md-offset-6">
+
     <label for="exampleInputEmail1" style="color: white;">Invitation / Rafferal Link</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="http://localhost/crypto/Signup.php?ref=<?php echo $username; ?>">
+   
     <br>
 
 
@@ -322,27 +323,14 @@ include('Admin/Database/Connection.php');
                                 <div class="box box-solid bg-black">
                                     <!-- /.box-header -->
                                     <div class="box-body">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="row">
-                                                    <div class="col-lg-10 col-sm-12">
-                                                        <div class="well pull-right">
-                                                             
-                                                            <form action="" method="get" class="form form-inline">
-                                                                
-                         
-
-                                                            </form>
-                                                            
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
+                                     
                                                 
 
 
 <div class="table-container table-responsive">
-    
+     <h2 style='color:white;'>Rafferal/Invitation Link</h2>   
+
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="http://localhost/crypto/Signup.php?ref=<?php echo $username; ?>" style='color:black;background-color: white;'>
     
         <table class="table">
             
@@ -352,19 +340,19 @@ include('Admin/Database/Connection.php');
                     
                         <th class="orderable">
                             
-                                <a href="?sort=description">S.No</a>
+                                <a href="?sort=description" style='color:white;'>S.No</a>
                             
                         </th>
                     
                         <th class="orderable desc">
                             
-                                <a href="?sort=date">Date</a>
+                                <a href="?sort=date" style='color:white;'>Date</a>
                             
                         </th>
                     
                         <th class="orderable">
                             
-                                <a href="?sort=amount">Name</a>
+                                <a href="?sort=amount" style='color:white;'>Name</a>
                             
                         </th>
                     
@@ -397,7 +385,7 @@ include('Admin/Database/Connection.php');
             }
             else
             {
-                echo "<tr ><td colspan='4' align='center'> No Record Found</td></tr>";
+                echo "<tr ><td colspan='4' align='center' style='color:white;'> No Record Found</td></tr>";
             }
 
      

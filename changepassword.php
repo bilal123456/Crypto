@@ -280,29 +280,28 @@ else
 
            
               
-	<div class="container" style="position: relative;top: 10px;">
+	<div class="container" style="position: relative;top: 100px;left: 100px">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Change Password</h5>
+            <h5 class="card-title text-center" style="color: #ef5350">Change Password</h5>
             <form method="post" class="form-signin">
-              <div class="form-label-group">
-                 <label for="inputEmail">old password</label>
-                <input name="oldpassword" type="text" id="inputEmail" class="form-control form-input" placeholder="old password" required autofocus>
+           
+                <input name="oldpassword" type="text" id="inputEmail" class="form-control form-input" placeholder="old password" required autofocus style="background: white;color: black;">
                
-              </div>
-<label for="inputPassword">New Password</label>
-              <div class="form-label-group">
-                <input type="password" name="npassword" id="inputPassword" class="form-control form-input" placeholder="new password" required>
+              
+<br>
+            
+                <input type="password" name="npassword" id="inputPassword" class="form-control form-input" placeholder="new password" required style="background: white;color: black;">
                 
-              </div>
-
-              <div class="form-label-group">
-                 <label for="inputEmail">Comfirm password</label>
-                <input name="cpassword" type="password" id="inputEmail" class="form-control form-input" placeholder="Comfirm password" required autofocus>
+            
+<br>
+        
+             
+                <input name="cpassword" type="password" id="inputEmail" class="form-control form-input" placeholder="Comfirm password" required autofocus style="background: white;color: black;">
                
-              </div>
+
               <br>
               <button name="changepassword" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="background-color: #bacb2f;
     border: 1px solid #bacb2f;
@@ -317,6 +316,7 @@ else
     -webkit-transition: all .4s;
     transition: all .4s;
     z-index: 9999!important;">Change Password</button>
+    </div>
               <hr class="my-4">
            
             </form>

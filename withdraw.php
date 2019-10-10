@@ -329,7 +329,14 @@ if(mysqli_num_rows($run)>0)
                                                 <p></p><h4>Last Withdrawal: <spam class="badge badge-default">June 28, 2019, 10:52 p.m.</spam></h4><p></p>
                                             </div>
                                         </div>
-<span id="success_message"></span>
+
+
+<div class="alert alert-danger alert-dismissable alert-link" id="alert">
+    <button class="close" type="button" data-dismiss="alert" aria-hidden="true">×</button>
+    
+       <span id="success_message"></span>
+    
+</div>
                                          <div class="form-label-group">
                  <label for="inputEmail">Bitcoin Address</label>
                 <input name="baddress" type="text" id="bitcoin" class="form-control form-input" placeholder="Bitcoin Address" required autofocus>
@@ -448,6 +455,7 @@ if(mysqli_num_rows($run)>0)
     <script type="text/javascript">
         $(document).ready(function () {
 
+$('#alert').hide();
 
           $('#btn-confirm').click(function(){
             var customerid = $('#customerid').val();
@@ -464,14 +472,19 @@ if(mysqli_num_rows($run)>0)
               data:{customerid:customerid,bitcoin:bitcoin,witdraw:witdraw,status:status,todaydate:todaydate,today:today,amount:amount},
               success:function(data)
               {
-                console.log(data);
-                alert(data);
+               // alert(data);
+                $('#alert').show();
+               // console.log(data);
+               // alert(data);
                 $('#success_message').html(data);
-                $('#success_message').css('color','red');
+                $('#success_message').css('color','white');
               }
             })
 
 
+
+
+          });
 
 
           });
@@ -484,30 +497,32 @@ if(mysqli_num_rows($run)>0)
             $(document).on('keyup','#amount',function(){
                var id =  $(this).val();
 
-//               alert(id);
-
-              var availablebalance =  $('#availablebalancestore').val();
-              alert(id);
-              alert(availablebalance);
-               
-                if(id > availablebalance)
-                {
-                     $('#witdraw').hide();
-                     $('#withdraw').val("");
-               }else {
-                 $('#witdraw').show();
-               // alert(id); alert(availablebalance);
-                 var total = id * 6/100;
+                var total = id * 6/100;
                  var show  = id - total;
                //alert(total);
                $('#witdraw').val(show);
-               }
+
+//               alert(id);
+
+            //   var availablebalance =  $('#availablebalancestore').val();
+            //   alert(id);
+            // //  alert(availablebalance);
+               
+            //     if(id > availablebalance)
+            //     {
+            //          $('#witdraw').hide();
+            //          $('#withdraw').val("");
+            //    }else {
+            //      $('#witdraw').show();
+               // alert(id); alert(availablebalance);
+                
+               });
                
 
               
 
-            });
-        });
+//             });
+//         });
     </script>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
   

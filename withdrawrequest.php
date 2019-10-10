@@ -23,7 +23,7 @@ if(isset($_POST['customerid']))
 	{
 		$insert = "insert into customer_withdraw(customerid,bitcoinaddress,amount,status,todaydate,send) values('".$customerid."','".$bitcoin."','".$amount."','".$status."','".$todaydate."','".$withdraw."')";
             $run = mysqli_query($link,$insert);
-            echo "you withdraw request successfully";
+            echo "Your withdraw request has been submit successfully";
 	}
 }
 
