@@ -65,18 +65,18 @@ try {
     //Server settings
     $mail->SMTPDebug = 2;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+    $mail->Host       = 'smtp.zoho.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true; 
      $mail->SMTPSecure = "tls";
     $mail->CharSet = "UTF-8";                                  // Enable SMTP authentication
-    $mail->Username   = 'bilalraza203@gmail.com';                     // SMTP username
+    $mail->Username   = 'bilalraza203';                     // SMTP username
     $mail->Password   = 'king5872123';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 587;                                    // TCP port to connect to
+    $mail->Port       = 465;                                    // TCP port to connect to
 
 $companyemail = "bilalraza203@gmail.com";
     //Recipients
-    $mail->setFrom($companyemail, 'Crypto STock');
+    $mail->setFrom('bilalraza203@gmail.com', 'Crypto STock');
     $mail->addAddress('bilalraza203@gmail.com', 'user email');     // Add a recipient
     $mail->addAddress('ellen@example.com');               // Name is optional
     $mail->addReplyTo('bilalraza203@gmail.com', 'Information');
@@ -115,9 +115,9 @@ $companyemail = "bilalraza203@gmail.com";
 			$_SESSION['id']   = $id;
 		}
 	}
-	echo "<script>
-	 window.location.href = 'Thankyou.php?username=$username&email=$email';
-	</script>";
+	// echo "<script>
+	//  window.location.href = 'Thankyou.php?username=$username&email=$email';
+	// </script>";
 
 		//header("Location:home.php");
 	}
