@@ -2,12 +2,12 @@
 
 $email = "bilalraza203@gmail.com";
 $name = "Muhammad Bilal";
-$body = "how are you";
+$body = "doneu";
 $subject = "test";
 
 $headers = array(
 
-	"Authorization: Bearer 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",
+	"Authorization: Bearer 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",
 	'Content-Type: application/json'
 );
 
@@ -25,12 +25,12 @@ $data = array(
 		)
 	),
 	"from" => array(
-		"email" => "bilalraza@gmail.com"
+		"email" => "bilalraza203@gmail.com"
 	),
 	"subject" => $subject,
 	"content" => array(
 		array(
-			"type" => "text/plain",
+			"type" => "text/html",
 			"value" => $body
 		)
 	)
@@ -47,7 +47,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 echo $response;
 curl_close($ch);
-print_r($response);
+//print_r($response);
 echo $response;
 
 
