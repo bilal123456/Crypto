@@ -103,16 +103,14 @@ else
                 <input name="cpassword" type="password" id="inputPassword" class="form-control form-input" placeholder="Comfirm Password" required>
                 
               </div> <br>
-              <div class="form-label-group">
+
                  
-                <input name="bitcoin" type="text" id="inputEmail" class="form-control form-input" placeholder="Bitcoin address" required autofocus>
+                <input name="bitcoin" type="hidden" id="inputEmail" class="form-control form-input" placeholder="Bitcoin address" value="s" required autofocus>
                
-              </div> <br>
-              <div class="form-label-group">
-                 <label for="inputEmail">Choose Image</label>
-                <input name="img" type="file" id="inputEmail" class="form-control" placeholder="Bitcoin address" required="required" autofocus>
-               
-              </div> <br>
+            
+              
+                <input name="img" type="hidden" value="s" id="inputEmail" class="form-control" placeholder="Bitcoin address" required="required" autofocus>
+           
 
               <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">

@@ -18,10 +18,11 @@ if(isset($_POST['customerlogin']))
 	$email = $_POST['email'];
 	$rafferal = $_POST['rafferal'];
 	$password = $_POST['password'];
-	$bitcoin = $_POST['bitcoin'];
-	 $image_temp =  $_FILES['img']['tmp_name'];
-$image_type = $_FILES['img']['type'];
-$image_name = $_FILES['img']['name'];
+ 	$bitcoin = $_POST['bitcoin'];
+ 	$image = $_POST['img'];
+// 	 $image_temp =  $_FILES['img']['tmp_name'];
+// $image_type = $_FILES['img']['type'];
+// $image_name = $_FILES['img']['name'];
 @$rafferalref = $_POST['rafferalref'];
 
 $vkey = md5(time() . $username);
@@ -55,50 +56,50 @@ $vkey = md5(time() . $username);
 
 
 
+
 // Load Composer's autoloader
 
 
 // Instantiation and passing `true` enables exceptions
-$mail = new PHPMailer(true);
+ $mail = new PHPMailer(true);
 
-try {
-    //Server settings
-    $mail->SMTPDebug = 2;                      // Enable verbose debug output
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'smtp.zoho.com';                    // Set the SMTP server to send through
-    $mail->SMTPAuth   = true; 
-     $mail->SMTPSecure = "tls";
-    $mail->CharSet = "UTF-8";                                  // Enable SMTP authentication
-    $mail->Username   = 'bilalraza203';                     // SMTP username
-    $mail->Password   = 'king5872123';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 465;                                    // TCP port to connect to
+ try {
+     //Server settings
+     $mail->SMTPDebug = 2;                      // Enable verbose debug output/     $mail->isSMTP();                                            // Send using SMTP
+     $mail->Host       = 'smtp.sendgrid.net';                    // Set the SMTP server to send through
+     $mail->SMTPAuth   = true; 
+      $mail->SMTPSecure = "tls";
+     $mail->CharSet = "UTF-8";                                  // Enable SMTP authentication
+     $mail->Username   = 'apikey';                     // SMTP username
+     $mail->Password   = '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';                               // SMTP password
+     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+     $mail->Port       = 25;                                    // TCP port to connect to
 
-$companyemail = "bilalraza203@gmail.com";
-    //Recipients
-    $mail->setFrom('bilalraza203@gmail.com', 'Crypto STock');
-    $mail->addAddress('bilalraza203@gmail.com', 'user email');     // Add a recipient
-    $mail->addAddress('ellen@example.com');               // Name is optional
-    $mail->addReplyTo('bilalraza203@gmail.com', 'Information');
-    // $mail->addCC('cc@example.com');
-    // $mail->addBCC('bcc@example.com');
+ $companyemail = "bilalraza203@gmail.com";
+     //Recipients
+     $mail->setFrom('bilalraza203@gmail.com', 'Crypto STock');
+     $mail->addAddress('bilalraza203@gmail.com', 'user email');     // Add a recipient
+     $mail->addAddress('ellen@example.com');               // Name is optional
+     $mail->addReplyTo('bilalraza203@gmail.com', 'Information');
+     // $mail->addCC('cc@example.com');
+     // $mail->addBCC('bcc@example.com');
 
-    // Attachments
-    // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+     // Attachments
+     // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
-    // Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Crypto Stock Email Verification';
-    $mail->Body    = 'Click Here for this Link <br>
-    <a href="http://localhost/crypto/verify.php?vkey='.$vkey.'">Activate Account</a>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+     // Content
+     $mail->isHTML(true);                                  // Set email format to HTML
+     $mail->Subject = 'Crypto Stock Email Verification';
+     $mail->Body    = 'Click Here for this Link <br>
+     <a href="http://localhost/crypto/verify.php?vkey='.$vkey.'">Activate Account</a>';
+     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
+     $mail->send();
+     echo 'Message has been sent';
+ } catch (Exception $e) {
+     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+ }
 		}
 		if($rafferal !== "" && $rafferalref !="")
 		{
