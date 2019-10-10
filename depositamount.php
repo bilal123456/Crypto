@@ -16,7 +16,7 @@ if(isset($_GET['packageid']))
 }
 
 
-echo $selectusername = "select * from customer where id='".$id."'";
+ $selectusername = "select * from customer where id='".$id."'";
 $run = mysqli_query($link,$selectusername);
 while($row=mysqli_fetch_assoc($run))
 {
@@ -291,7 +291,7 @@ while($row=mysqli_fetch_assoc($run))
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Deposit</h5>
+            <h5 class="card-title text-center" style="color: #ef5350">Deposit</h5>
             <form method="post" class="form-signin" enctype="multipart/form-data">
               <div class="form-label-group">
                  <label for="inputEmail">Payment Method</label>

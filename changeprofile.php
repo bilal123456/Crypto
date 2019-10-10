@@ -241,10 +241,10 @@ $sql = "select * from customer where email='".$email."' limit 1";
 
 ?>
 <form method="post">
-<div class="content-wrapper" style="min-height: 699.875px;">
-                <div class="content">
+<div class="content-wrapper" style="min-height: 699.875px;background-color: #343a40;">
+                <div class="content" style="background-color: #343a40">
                     <div class="container-fluid">
-                        <div class="row" style="position: relative;left: 200px;top: 50px;">
+                        <div class="row" style="position: relative;left: 200px;top: 50px;background-color: #343a40">
                             <div class="col-8">
                                 <div class="box box-solid bg-black">
                                     <div class="box-header with-border">
