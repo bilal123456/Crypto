@@ -177,7 +177,7 @@ else
                     <div class="ulogo">
                         <a href="/">
                             <!-- logo for regular state and mobile devices -->
-                            <img src="img/Untitled (5).png">
+                            <img src="img/Untitled (5).png" style="position: relative;top: -30px;">
                            
                         </a>
                     </div>
@@ -387,10 +387,10 @@ echo date("l jS \of F Y h:i:s A");
                                         
                                         
                                     <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -402,17 +402,17 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
 
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+                                   <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -424,19 +424,17 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
 
-
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -448,19 +446,18 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
 
 
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -472,19 +469,17 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
 
-
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -496,19 +491,17 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
 
-
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -520,18 +513,17 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
 
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -543,18 +535,17 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
 
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -566,18 +557,16 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
-
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img id="image" src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -589,17 +578,16 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
 
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -611,17 +599,15 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
-
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -633,18 +619,15 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
-
-
-
-                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i><img src="images/BTC.svg" width="32" height="32"> Bitcoin
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
                                             <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
                                             <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
                                             <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
@@ -656,11 +639,90 @@ echo date("l jS \of F Y h:i:s A");
                                             <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
                                             <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Ethrem Classic
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
                                             <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                        
-                                           
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
                                            
                                           
                                           
@@ -1218,38 +1280,40 @@ if(mysqli_num_rows($runsql)>0)
             dataType:'json',
             success:function(data)
             {
+             // alert(data);
+              console.log(data);
                 
-                var ABC = data['rates'].BTC
+              //  var ABC = data['rates'].BTC
 
-                var ACP = data["rates"].BTCA
-                var ACT = data["rates"].ETH
-                var AIB = data["rates"].LTC
-                var AST = data["rates"].RIYA
-                var BAR = data["rates"].XLM
-
-
-                var BTCA = data["rates"].BTCA
-                var ENJ = data["rates"].ENJ
-                var ETT = data["rates"].ETT
-                var KIN = data["rates"].KIN
-                var MTL = data["rates"].MTL
+              //  var ACP = data["rates"].BTCA
+                // var ACT = data["rates"].ETH
+                // var AIB = data["rates"].LTC
+                // var AST = data["rates"].RIYA
+                // var BAR = data["rates"].XLM
 
 
-                var MTX = data["rates"].MTX
-                var NULS = data["rates"].NULS
-                var OAX = data["rates"].OAX
-                var SALT = data["rates"].SALT
-                var SBC = data["rates"].SBC
+                // var BTCA = data["rates"].BTCA
+                // var ENJ = data["rates"].ENJ
+                // var ETT = data["rates"].ETT
+                // var KIN = data["rates"].KIN
+                // var MTL = data["rates"].MTL
 
 
+                // var MTX = data["rates"].MTX
+                // var NULS = data["rates"].NULS
+                // var OAX = data["rates"].OAX
+                // var SALT = data["rates"].SALT
+                // var SBC = data["rates"].SBC
 
 
 
-                var ETH = data["rates"].ETH
-                var BTC = data["rates"].BTC
-                var acp = data["rates"].XRP
-                var LTC = data["rates"].LTC
-                var DASH = data["rates"].DASH
+
+
+                // var ETH = data["rates"].ETH
+                // var BTC = data["rates"].BTC
+                // var acp = data["rates"].XRP
+                // var LTC = data["rates"].LTC
+                // var DASH = data["rates"].DASH
             
 
                 

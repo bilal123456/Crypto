@@ -190,7 +190,7 @@ while($row=mysqli_fetch_assoc($run))
                     <div class="ulogo">
                         <a href="/">
                             <!-- logo for regular state and mobile devices -->
-                            <img src="img/Untitled (5).png">
+                     <img src="img/Untitled (5).png" style="position: relative;top: -30px;">
                            
                         </a>
                     </div>

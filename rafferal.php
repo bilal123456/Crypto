@@ -177,7 +177,7 @@ else
                     <div class="ulogo">
                         <a href="/">
                             <!-- logo for regular state and mobile devices -->
-                            <img src="img/Untitled (5).png">
+                            <img src="img/Untitled (5).png" style="position: relative;top: -30px;">
                            
                         </a>
                     </div>
@@ -300,13 +300,12 @@ include('Admin/Database/Connection.php');
 
 
 
- <div class="content-wrapper">
+ <div class="content-wrapper" style="background-color: #343a40;">
                 <!-- Content Header (Page header) -->
        
                                 
      <div class="form-group col-lg-6 col-md-offset-6">
 
-    <label for="exampleInputEmail1" style="color: white;">Invitation / Rafferal Link</label>
    
     <br>
 
@@ -315,7 +314,7 @@ include('Admin/Database/Connection.php');
                 
 
 
-                <div class="content">
+                <div class="content" style="background-color: #343a40">
                     <div class="container-fluid">
                         
                         <div class="row">
