@@ -17,7 +17,7 @@ body, html {
   background: url("images/register.png");
 
   /* Full height */
-  height: 140%; 
+  height: 100%; 
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -128,7 +128,7 @@ else
     text-transform: uppercase;
     -webkit-transition: all .4s;
     transition: all .4s;
-    z-index: 9999!important;">Sign in</button>
+    z-index: 9999!important;">Sign up</button>
               
            
             </form>

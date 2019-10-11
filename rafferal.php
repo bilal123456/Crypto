@@ -329,7 +329,7 @@ include('Admin/Database/Connection.php');
 <div class="table-container table-responsive">
      <h2 style='color:white;'>Rafferal/Invitation Link</h2>   
 
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="http://localhost/crypto/Signup.php?ref=<?php echo $username; ?>" style='color:black;background-color: white;'>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="http://www.uscryptostok.com/Signup.php?ref=<?php echo $username; ?>" style='color:black;background-color: white;'>
     
         <table class="table">
             

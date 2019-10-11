@@ -383,7 +383,7 @@ else
                             ?>
      <tr data-status="in" class="even" style="background-color: #20c997;color: white;">
                             <td><?php echo $i++; ?></td>
-                             <td><?php echo $row['todaydate']?></td>
+                             <td><?php echo $row['todaydate']. "  " .  $row['time']?></td>
                               <td><?php echo $row['amount'] ?></td>
                              <td><?php echo $row['bitcoinaddress']; ?></td>
                              
