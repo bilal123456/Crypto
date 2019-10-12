@@ -288,12 +288,19 @@ while($row=mysqli_fetch_assoc($run))
         </aside>
 	<div class="container" style="position: relative;top: 70px;left: 50px;">
     <div class="row">
+
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center" style="color: #ef5350">Deposit</h5>
             <form method="post" class="form-signin" enctype="multipart/form-data">
               <div class="form-label-group">
+                 <div class="alert alert-danger alert-dismissable alert-link" id="alert">
+    <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
+    
+       <span id="success_message"></span>
+    
+</div>
                  <label for="inputEmail">Payment Method</label>
                 <input name="method" type="text" readonly="readonly" id="inputEmail" class="form-control form-input" placeholder="method" required autofocus value="BTC">
                
@@ -346,8 +353,16 @@ while($row=mysqli_fetch_assoc($run))
   </div>
           
 
+<script type="text/javascript">
+    $('#alert').hide();
+</script>
+ 
+
           <?php 
          // ob_start();
+
+
+
           if(isset($_POST['deposit']))
           {
           	
@@ -467,10 +482,10 @@ if(mysqli_num_rows($runcheckrafferal)>0)
                     while($row = mysqli_fetch_assoc($runtotalcommission))
                     {
                         $commission = $row['totalcommission'];
-                        $commission = $commission + $bonus;
+                        $commission = $commission + $bouns;
                     }
                 }
-              $update = "update rafferal set commission='".$bonus."',totalcommission='".$commission."' where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
+              $update = "update rafferal set commission='".$bouns."',totalcommission='".$commission."' where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
                 $runupdate = mysqli_query($link,$update);
             }
             else  if($Amount >= 2500 && $Amount < 5000)
@@ -483,33 +498,42 @@ if(mysqli_num_rows($runcheckrafferal)>0)
                     while($row = mysqli_fetch_assoc($runtotalcommission))
                     {
                         $commission = $row['totalcommission'];
-                        $commission = $commission + $bonus;
+                        $commission = $commission + $bouns;
                     }
                 }
               $update = "update rafferal set commission='".$bonus."',totalcommission='".$commission."' where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
                 $runupdate = mysqli_query($link,$update);
             }
-            else  if($Amount >= 5000)
+            else  if($Amount > 5000)
             {
-                $bouns = 1050;
+               $bouns = 1050;
                 $selecttotalcommision= "select * from rafferal  where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
                 $runtotalcommission = mysqli_query($link,$selecttotalcommision);
                 if(mysqli_num_rows($runtotalcommission)>0)
                 {
+
                     while($row = mysqli_fetch_assoc($runtotalcommission))
                     {
-                        $commission = $row['totalcommission'];
-                        $commission = $commission + $bonus;
+                      echo  $commission = $row['totalcommission'];
+                     echo   $commission = $commission + $bouns;
                     }
                 }
-              $update = "update rafferal set commission='".$bonus."',totalcommission='".$commission."' where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
+              $update = "update rafferal set commission='".$bouns."',totalcommission='".$commission."' where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
                 $runupdate = mysqli_query($link,$update);
             }
             
             
 
 
-          echo "<script>window.location = 'home.php';</script>";
+          echo "<script>
+
+            $('#alert').show();
+               // console.log(data);
+            var data = 'Your deposit request has been submitted successfully';
+               // alert('your deposit request has been submitted successfully');
+                $('#success_message').html(data);
+                $('#success_message').css('color','white');
+          </script>";
           //  header("Location:history.php");
             
 

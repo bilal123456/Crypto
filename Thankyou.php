@@ -156,6 +156,7 @@
           Sign in your email account and click on the verification link we just email at you
           </center>
           <strong><?php echo $email; ?></strong>
+          <button class="btn btn-success"><a href="Login.php">Login</a></button>
         </div>
       </div>
     </div>

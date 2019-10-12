@@ -14,12 +14,12 @@ $ok = mysqli_query($link,$update);
 if($ok)
 {
 	echo "your account has been verified you have to login";
-	header("Location:login.html");
+	header("Location:Login.html");
 }
 }else
 {
 	echo "this account is invalid";
-	//header("location:login.html");
+	header("location:Login.html");
 }
 }
 else
