@@ -18,8 +18,10 @@ body, html {
   background: url("images/register.png");
 
 
-  /* Full height */
+
   height: auto; 
+ 
+
 
   /* Center and scale the image nicely */
   background-position: center;
