@@ -11,6 +11,7 @@ if(isset($_POST['customerid']))
 	$todaydate = $_POST['todaydate'];
 	$today = $_POST['today'];
 	$amount = $_POST['amount'];
+	$time = date("h:i:sa");
 	if($today == "Sunday")
 	{
 		echo "withdraw off on saturday and sunday";
@@ -21,7 +22,7 @@ if(isset($_POST['customerid']))
 	}
 	else
 	{
-		$insert = "insert into customer_withdraw(customerid,bitcoinaddress,amount,status,todaydate,send) values('".$customerid."','".$bitcoin."','".$amount."','".$status."','".$todaydate."','".$withdraw."')";
+		$insert = "insert into customer_withdraw(customerid,bitcoinaddress,amount,status,todaydate,send,time) values('".$customerid."','".$bitcoin."','".$amount."','".$status."','".$todaydate."','".$withdraw."','".$time."')";
             $run = mysqli_query($link,$insert);
             echo "Your withdraw request has been submit successfully";
 	}

@@ -325,9 +325,23 @@ if(mysqli_num_rows($run)>0)
                                             <p></p><h4>Payment Discount: <spam class="badge badge-default">6%</spam></h4><p></p>
                                             <span id="succussmeage"></span>
                                             </div>
+                                            <?php 
+                                            $lastwithdrawal = "SELECT * FROM `customer_withdraw` where customerid='".$id."' order by id DESC LIMIT 1";
+                                            $run = mysqli_query($link,$lastwithdrawal);
+                                            if(mysqli_num_rows($run)>0)
+                                            {
+                                              if($row = mysqli_fetch_assoc($run))
+                                              {
+                                                $todaylastwithdrawal = $row['todaydate'];
+                                                $timelastwithdrawal = $row['time'];
+                                           ?>
                                             <div class="col-lg-6 col-sm-12">
-                                                <p></p><h4>Last Withdrawal: <spam class="badge badge-default">June 28, 2019, 10:52 p.m.</spam></h4><p></p>
+                                                <p></p><h4>Last Withdrawal: <spam class="badge badge-default"><?php echo $todaylastwithdrawal; ?>, <?php echo $timelastwithdrawal; ?></spam></h4><p></p>
                                             </div>
+                                            <?php 
+                                          }}
+
+                                            ?>
                                         </div>
 
 

@@ -1,4 +1,7 @@
 <?php
+
+
+//done
 include('Admin/Database/Connection.php');
 session_start();
 		
@@ -34,16 +37,16 @@ $vkey = md5(time() . $username);
 	if(mysqli_num_rows($run) > 0)
 	{
 	echo "Already Entered";	
-	header("Location:login.html");
+	//header("Location:Login.html");
 	}
 	else
 	{
 
-           $upload = move_uploaded_file($_FILES["img"]["tmp_name"],'customerimage/' . $_FILES['img']['name']);
- $imagename = 'customerimage/'.$_FILES['img']['name'];
+ //           $upload = move_uploaded_file($_FILES["img"]["tmp_name"],'customerimage/' . $_FILES['img']['name']);
+ // $imagename = 'customerimage/'.$_FILES['img']['name'];
 
 		$todaydate = date("Y/m/d");
-		$insert = "insert into customer(username,firstname,lastname,email,rafferal,password,bitcoinaddress,image,vkey,verified) values('".$username."','".$firstname."','".$lastname."','".$email."','".$rafferal."','".$password."','".$bitcoin."','".$imagename."','".$vkey."','0')";
+		$insert = "insert into customer(username,firstname,lastname,email,rafferal,password,bitcoinaddress,image,vkey,verified) values('".$username."','".$firstname."','".$lastname."','".$email."','".$rafferal."','".$password."','".$bitcoin."','s','".$vkey."','0')";
 
 
 		$runinsert = mysqli_query($link,$insert);
@@ -63,48 +66,35 @@ $vkey = md5(time() . $username);
 // Instantiation and passing `true` enables exceptions
  $mail = new PHPMailer(true);
 
- try {
-     //Server settings
-     $mail->SMTPDebug = 2;                      // Enable verbose debug output/     $mail->isSMTP();                                            // Send using SMTP
-     $mail->Host       = 'smtp.sendgrid.net';                    // Set the SMTP server to send through
-     $mail->SMTPAuth   = true; 
-      $mail->SMTPSecure = "tls";
-     $mail->CharSet = "UTF-8";                                  // Enable SMTP authentication
-     $mail->Username   = 'apikey';                     // SMTP username
-     $mail->Password   = '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';                               // SMTP password
-     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-     $mail->Port       = 25;                                    // TCP port to connect to
-
- $companyemail = "bilalraza203@gmail.com";
-     //Recipients
-     $mail->setFrom('bilalraza203@gmail.com', 'Crypto STock');
-     $mail->addAddress('bilalraza203@gmail.com', 'user email');     // Add a recipient
-     $mail->addAddress('ellen@example.com');               // Name is optional
-     $mail->addReplyTo('bilalraza203@gmail.com', 'Information');
-     // $mail->addCC('cc@example.com');
-     // $mail->addBCC('bcc@example.com');
-
-     // Attachments
-     // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-     // Content
-     $mail->isHTML(true);                                  // Set email format to HTML
-     $mail->Subject = 'Crypto Stock Email Verification';
-     $mail->Body    = 'Click Here for this Link <br>
-     <a href="http://localhost/crypto/verify.php?vkey='.$vkey.'">Activate Account</a>';
+    
+     $subject = 'Crypto Stock Email Verification';
+     $body    = 'Click Here for this Link <br>
+     <a href="http://www.uscryptostok.com/verify.php?vkey='.$vkey.'">Activate Account</a>';
      $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-     $mail->send();
-     echo 'Message has been sent';
- } catch (Exception $e) {
-     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
- }
-		}
+     $phpMailer = new PHPMailer(true);
+$phpMailer->isSMTP();
+$phpMailer->Host = "smtp.zoho.com";
+$phpMailer->SMTPAuth = true;
+$phpMailer->Username = "bilalraza203@gmail.com";
+$phpMailer->Password = "king5872123123";
+$phpMailer->SMTPSecure = "sls";
+$phpMailer->Port = 587;
+$phpMailer->isHTML(true);
+$phpMailer->CharSet = "UTF-8";
+$phpMailer->setFrom("info@uscryptostok.com", "Us Crypto Stock");
+//$phpMailer->From  = $email;
+// $phpMailer->AddCC($email, 'Person One');
+$phpMailer->addAddress($email,'Us Crypto Official');
+
+$phpMailer->Subject = $subject;
+$phpMailer->Body = $body;
+$phpMailer->send();
+		
 		if($rafferal !== "" && $rafferalref !="")
 		{
 
-		$rafferal = "insert into rafferal(todaydate,rafferalunderusername,newregisterusername) values('".$todaydate."','".$rafferal."','".$username."')";
+		$rafferal = "insert into rafferal(todaydate,rafferalunderusername,newregisterusername,commission,totalcommission) values('".$todaydate."','".$rafferal."','".$username."','0','0')";
 		$runrafferal = mysqli_query($link,$rafferal);
 		
 		$sql = "select * from customer where email='".$email."'";
@@ -115,13 +105,15 @@ $vkey = md5(time() . $username);
 			$_SESSION['email'] = $email;
 			$_SESSION['id']   = $id;
 		}
-	}
-	// echo "<script>
-	//  window.location.href = 'Thankyou.php?username=$username&email=$email';
-	// </script>";
 
-		//header("Location:home.php");
 	}
+	 echo "<script>
+	  window.location.href = 'Thankyou.php?username=$username&email=$email';
+	 </script>";
+
+		header("Location:home.php");
+	}
+}
 }
 
 ?>

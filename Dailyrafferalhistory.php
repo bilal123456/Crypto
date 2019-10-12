@@ -94,6 +94,7 @@ else
 }
 
 
+  <link rel="stylesheet" href="./dist/sidebar-menu.css">
 </style>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -128,7 +129,7 @@ else
 
             
 
-       <header class="main-header">
+        <header class="main-header">
             <!-- Logo -->
             <a href="/" class="logo">
                 <!-- logo for regular state and mobile devices -->
@@ -177,7 +178,7 @@ else
                     <div class="ulogo">
                         <a href="/">
                             <!-- logo for regular state and mobile devices -->
-                           <img src="img/Untitled (5).png" style="position: relative;top: -30px;">
+                            <img src="img/Untitled (5).png">
                            
                         </a>
                     </div>
@@ -274,47 +275,26 @@ else
   </section>
         </aside>
         
-        
 
-              
-<?php 
-include('Admin/Database/Connection.php');
-
-  $sql = "select * from customer where id='".$id."'";
-    $run = mysqli_query($link,$sql);
-    if(mysqli_num_rows($run)>0)
-    {
-        while($row = mysqli_fetch_assoc($run))
-        {
-            $username = $row['username'];
-        }
-    }
-
-
-?>
-
-
-
-
-
-
-
-
- <div class="content-wrapper" style="background-color: #343a40;">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-       
-                                
-     <div class="form-group col-lg-6 col-md-offset-6">
+                <section class="content-header">
+                    <h1>
+                       Daily Roi History
+                       
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">
+                            <i class="fa fa-dashboard"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </section>
 
-   
-    <br>
 
-
-  </div>
-                
-
-
-                <div class="content" style="background-color: #343a40">
+                <div class="content">
                     <div class="container-fluid">
                         
                         <div class="row">
@@ -322,14 +302,27 @@ include('Admin/Database/Connection.php');
                                 <div class="box box-solid bg-black">
                                     <!-- /.box-header -->
                                     <div class="box-body">
-                                     
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-sm-12">
+                                                        <div class="well pull-right">
+                                                             
+                                                            <form action="" method="get" class="form form-inline">
+                                                                
+                         
+
+                                                            </form>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
                                                 
 
 
 <div class="table-container table-responsive">
-     <h2 style='color:white;'>Rafferal/Invitation Link</h2>   
-
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="http://www.uscryptostok.com/Signup.php?ref=<?php echo $username; ?>" style='color:black;background-color: white;'>
+    
     
         <table class="table">
             
@@ -339,21 +332,27 @@ include('Admin/Database/Connection.php');
                     
                         <th class="orderable">
                             
-                                <a href="?sort=description" style='color:white;'>S.No</a>
+                                <a href="?sort=description">Description</a>
                             
                         </th>
                     
                         <th class="orderable desc">
                             
-                                <a href="?sort=date" style='color:white;'>Date</a>
+                                <a href="?sort=date">Date</a>
                             
                         </th>
                     
                         <th class="orderable">
                             
-                                <a href="?sort=amount" style='color:white;'>Name</a>
+                                <a href="?sort=amount">Amount</a>
                             
                         </th>
+                          <th class="orderable">
+                            
+                                <a href="?sort=amount">Name</a>
+                            
+                        </th>
+                       
                     
                     </tr>
                 </thead>
@@ -361,40 +360,49 @@ include('Admin/Database/Connection.php');
             
             
                 <tbody>
-                
- <?php 
-            $collectrafferal = "SELECT * FROM `rafferal` where rafferalunderusername='".$username."'";
-            $runrafferal = mysqli_query($link,$collectrafferal);
-            if(mysqli_num_rows($runrafferal)>0)
-            {
-                $i=1;
-                while($row = mysqli_fetch_assoc($runrafferal))
-                {
+                 <?php 
+                    $limit = 30;
+                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    if($page == 0) {
+                    echo $page =1;
+                  }
+                    $start = ($page - 1) * $limit;
 
-               ?>
-   <tr data-status="in" class="even" style="background-color: #20c997;color: white;"> 
-        <td><?php echo $i++; ?></td>
-            <td><?php echo $row['todaydate']; ?></td>
-            <td><?php echo $row['newregisterusername']; ?></td>
+                      $sql = "SELECT * FROM `rafferal` r inner join customer c on c.username = r.rafferalunderusername where c.id='".$id."' limit $start,$limit";
+                      $run = mysqli_query($link,$sql);
+                      if(mysqli_num_rows($run)>0)
+                      {
+                        while($row = mysqli_fetch_assoc($run))
+                        {
 
-    </tr>
-<?php
 
- }
-            }
-            else
-            {
-                echo "<tr ><td colspan='4' align='center' style='color:white;'> No Record Found</td></tr>";
-            }
 
-     
-?>
+                          ?>
+                      
+
                     
-                   
-    
+                    <tr data-status="in" class="even" style="background-color: #20c997;color: white;">
+                        
+                            <td>Rafferal Income</td>
+                        
+                            <td><?php echo $row['todaydate'] ?></td>
+                        
+                            <td><?php echo $row['commission'] ?></td>
+                              <td><?php echo $row['firstname'] . " " . $row['lastname'] ?></td>
+                             
+                        
+                    </tr>
                     
              
-                       
+                          <?php
+                        }
+                      }
+                      else
+                      {
+                        echo "<tr><td colspan='3' style='text-align: center;'>no record</td></tr>";
+                      }
+                   ?> 
+                
                 </tbody>
             
             
@@ -406,7 +414,54 @@ include('Admin/Database/Connection.php');
 
     
     
-   
+    
+        <nav aria-label="Table navigation">
+            <ul class="pagination">
+            
+              <?php
+
+                      $result = "SELECT count(c.id) as c FROM `rafferal` r inner join customer c on c.username = r.rafferalunderusername where c.id='".$id."'";
+                      $runresult = mysqli_query($link,$result);
+                      if(mysqli_num_rows($runresult)>0)
+                      {
+                        while($row1 = mysqli_fetch_assoc($runresult))
+                        {
+                          $total = $row1['c'];
+                          $pages = ceil($total/$limit);
+                         if($pages < 0)
+                         {
+                          $pages = 1;
+                         }
+                          $previous = $page - 1;
+                        if($previous == -1)
+                        {
+                         // $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                         // echo $page + 1;
+                         // $previous = $page + 1;
+                        //$page = $previous + 2;
+
+                         
+                        }
+                         $next = $page +1;
+                       ?>
+                 <?php for($i=1;$i<$pages;$i++) {?>
+
+                              <li><a id="try" href="DailyRoiHistory.php?page=<?php if($page>0){ echo $i;} ?>"><?php echo $i; ?></a></li>
+                                <?php } ?>
+
+                              
+                    
+                        <li class="active">
+                            
+                                <a href="DailyRoiHistory.php?page=<?php echo $next; ?>">
+                                    Next
+                                </a>
+                            
+                        </li>
+                  
+            
+            </ul>
+        </nav>
         
     
     
@@ -427,64 +482,13 @@ include('Admin/Database/Connection.php');
                 <!-- Main content -->
                
   
+<?php
+ }
+                      }
 
+                    ?>
                 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-           
-        </div>
-    </div>
-  
-
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-     <!--   Core JS Files   -->
-       <script src="/static/assets/vendor_components/jquery/dist/jquery.min.473957cfb255.js" type="text/javascript"></script>
-       
-
-
-
-
-
-
-
-    
-    <link rel="stylesheet" type="text/css" href="/static/session_security/style.8908ffb3a65a.css"></body>
-<script type='text/javascript' src='//cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
-
-
-
-  <script src="./dist/sidebar-menu.js"></script>
-  <script>
-    $.sidebarMenu($('.sidebar-menu'))
-  </script>
+              
+</body>
 </html>
