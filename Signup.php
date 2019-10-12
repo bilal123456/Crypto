@@ -19,7 +19,11 @@ body, html {
 
 
   /* Full height */
+<<<<<<< HEAD
   height: auto; 
+=======
+  height: 100%; 
+>>>>>>> a4d39660312e2b3d2e9249686f401aaf9fb67a6c
 
   /* Center and scale the image nicely */
   background-position: center;

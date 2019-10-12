@@ -73,17 +73,29 @@ $vkey = md5(time() . $username);
 $phpMailer->isSMTP();
 $phpMailer->Host = "smtp.zoho.com";
 $phpMailer->SMTPAuth = true;
+<<<<<<< HEAD
 $phpMailer->Username = "bilalraza203@gmail.com";
 $phpMailer->Password = "king5872123123";
+=======
+$phpMailer->Username = "crypto@uscryptostok.com";
+$phpMailer->Password = "king5872123";
+>>>>>>> a4d39660312e2b3d2e9249686f401aaf9fb67a6c
 $phpMailer->SMTPSecure = "sls";
 $phpMailer->Port = 587;
 $phpMailer->isHTML(true);
 $phpMailer->CharSet = "UTF-8";
+<<<<<<< HEAD
 $phpMailer->setFrom("info@uscryptostok.com", "Us Crypto Stock");
 //$phpMailer->From  = $email;
 // $phpMailer->AddCC($email, 'Person One');
 $phpMailer->addAddress($email,'Us Crypto Official');
 
+=======
+$phpMailer->setFrom("crypto@uscryptostok.com", "Us Crypto Stock");
+//$phpMailer->From  = $email;
+// $phpMailer->AddCC($email, 'Person One');
+$phpMailer->addAddress($email,'done');
+>>>>>>> a4d39660312e2b3d2e9249686f401aaf9fb67a6c
 $phpMailer->Subject = $subject;
 $phpMailer->Body = $body;
 $phpMailer->send();
