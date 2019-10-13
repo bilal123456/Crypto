@@ -21,6 +21,9 @@ body, html {
   /* Full height */
   height: auto; 
 
+
+
+
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
