@@ -14,6 +14,7 @@ if(isset($_POST['rafferalammount']))
 	$today = $_POST['today'];
 	$amount = $_POST['amount'];
 	$time = date("h:i:sa");
+
 	
 	if($amount < 29)
 	{
@@ -79,7 +80,7 @@ else
 	{
 		echo "Withdraw must be greater than 29";
 	}
-	if($today == "Sunday")
+if($today == "Sunday")
 	{
 		echo "withdraw off on saturday and sunday";
 	}

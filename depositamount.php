@@ -576,8 +576,10 @@ if(mysqli_num_rows($runcheckrafferal)>0)
 
                     while($row = mysqli_fetch_assoc($runtotalcommission))
                     {
-                        $commission = $row['totalcommission'];
-                        $commission = $commission + $bouns;
+
+
+                      echo  $commission = $row['totalcommission'];
+                     echo   $commission = $commission + $bouns;
                     }
                 }
 
@@ -614,18 +616,16 @@ if(mysqli_num_rows($runcheckrafferal)>0)
                 $('#success_message').css('color','white');
 
 
+
                 window.setTimeout(function(){
 
        
         window.location.href = 'home.php';
 
     }, 5000);</script>";
-          //  header("Location:history.php");
-            
 
-           
-          }
-         // ob_end_flash();
+     
+
           ?>    
            
 

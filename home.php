@@ -1165,13 +1165,18 @@ if(mysqli_num_rows($runsql)>0)
 
                             <?php 
 
+
                             $directrafferal = "select * from customer c inner join rafferal r on c.username = r.rafferalunderusername where c.id='".$id."' limit 1";
+
+                           
                             $rundirectrafferal = mysqli_query($link,$directrafferal);
                             if(mysqli_num_rows($rundirectrafferal)>0)
                             {
                               while($row = mysqli_fetch_assoc($rundirectrafferal))
                               {
+
                                 $commission = $row['totalcommission'];
+
                              
 
                             ?>
@@ -1459,6 +1464,7 @@ window.location.href = "DailyRoiHistory.php";
     {
 
 window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission?>";
+
     });
       });
 
