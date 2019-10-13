@@ -1204,7 +1204,10 @@ include('Admin/Database/Connection.php');
    } 
  }else
    {
+
    $commission = 0;
+
+
     ?>
 <div class="row" style="position: relative;left: 120px;">
   <div class="col-lg-5 col-md-6" id="nextpage1">
@@ -1470,7 +1473,11 @@ window.location.href = "DailyRoiHistory.php";
           $('#nextpage1').click(function(e)
     {
 
+
 window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission;?>";
+
+
+
 
     });
   

@@ -689,7 +689,12 @@ if(mysqli_num_rows($runcheckrafferal)>0)
               });
             
 
+
 setInterval(function(){ window.location.href = 'home.php'; }, 3000);</script>";
+
+
+
+
 
 
 }
