@@ -9,6 +9,7 @@
 body, html {
   height: 100%;
   margin: 0;
+  padding: 0px;
 }
 
 
@@ -16,13 +17,14 @@ body, html {
   /* The image used */
   background: url("images/register.png");
 
+
   /* Full height */
-  height: 140%; 
+  height: auto; 
 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
 }
 
 .form-input{
@@ -58,11 +60,9 @@ else
   <div class="container">
     
   <div class="row h-100 justify-content-center align-items-center">
-
-    <br><br> <br> 
-   <div class="container" style="position: relative;top: 50px;">
+<div class="container">
     <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-0">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-7">
         <div class="card card-signin my-0">
           <div class="card-body">
             <h5 class="card-title text-center">Sign Up</h5>
@@ -128,7 +128,7 @@ else
     text-transform: uppercase;
     -webkit-transition: all .4s;
     transition: all .4s;
-    z-index: 9999!important;">Sign in</button>
+    z-index: 9999!important;">Sign up</button>
               
            
             </form>

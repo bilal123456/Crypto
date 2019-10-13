@@ -275,10 +275,10 @@ else
         </aside>
         
   <input type="hidden" name="customerid" value="<?php echo $id; ?>" id="customerid">      
-           
+
           
 <?php
-$availablebalance = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1
+ $availablebalance = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1
 ";
 $run = mysqli_query($link,$availablebalance);
 if(mysqli_num_rows($run)>0)
@@ -287,6 +287,10 @@ if(mysqli_num_rows($run)>0)
   {
     $addroi = $row['addroi'];
   }
+}
+else
+{
+  $addroi = 0;
 }
 
  ?>
@@ -317,7 +321,21 @@ if(mysqli_num_rows($run)>0)
                                     <!-- /.box-header -->
                                     <div class="box-body">
                                       <span id="nowithdraw"></span>
-                                        <h4 class="card-title">BALANCE AVAILABLE &nbsp;:  &nbsp;$ <?php echo $addroi; ?>
+                                        <h4 class="card-title">BALANCE AVAILABLE &nbsp;:  &nbsp;$ <?php
+
+                                        if(isset($_GET['rafferalcommission']))
+                                        {
+                                          $g = $_GET['rafferalcommission'];
+                                          echo $g;
+                                          echo "<input type='hidden' id='rafferalcommission' value='".$g."'";
+                                        }
+                                        else
+                                        {
+                                          echo $addroi;
+                                        }
+
+
+                                          ?>
                                           <input type="hidden" id="availablebalancestore" value="<?php echo $addroi; ?>">
                                         </h4>
                                         <div class="row">
@@ -325,9 +343,24 @@ if(mysqli_num_rows($run)>0)
                                             <p></p><h4>Payment Discount: <spam class="badge badge-default">6%</spam></h4><p></p>
                                             <span id="succussmeage"></span>
                                             </div>
+                                            <?php 
+                                            $lastwithdrawal = "SELECT * FROM `customer_withdraw` where customerid='".$id."' order by id DESC LIMIT 1";
+                                            $run = mysqli_query($link,$lastwithdrawal);
+                                            if(mysqli_num_rows($run)>0)
+                                            {
+                                              if($row = mysqli_fetch_assoc($run))
+                                              {
+                                                $todaylastwithdrawal = $row['todaydate'];
+                                                $timelastwithdrawal = $row['time'];
+                                           ?>
                                             <div class="col-lg-6 col-sm-12">
-                                                <p></p><h4>Last Withdrawal: <spam class="badge badge-default">June 28, 2019, 10:52 p.m.</spam></h4><p></p>
+                                                <p></p><h4>Last Withdrawal: <spam class="badge badge-default"><?php echo $todaylastwithdrawal; ?>, <?php echo $timelastwithdrawal; ?></spam></h4><p></p>
                                             </div>
+                                            <?php 
+                                          }
+                                        }
+
+                                            ?>
                                         </div>
 
 
@@ -479,6 +512,40 @@ $('#alert').hide();
                 $('#success_message').html(data);
                 $('#success_message').css('color','white');
               }
+            });
+
+
+            
+
+
+
+
+          });
+
+
+           $('#btn-confirm').click(function(){
+            var customerid = $('#customerid').val();
+            var bitcoin = $('#bitcoin').val();
+            var amount = $('#amount').val();
+
+            var witdraw = $('#witdraw').val();
+            var status = 0;
+            var todaydate = $('#date').val();
+            var today = $('#today').val();
+            var rafferalammount = $('#rafferalcommission').val();
+            $.ajax({
+              url:"withdrawrequest.php",
+              method:"post",
+              data:{rafferalammount:rafferalammount,customerid:customerid,bitcoin:bitcoin,witdraw:witdraw,status:status,todaydate:todaydate,today:today,amount:amount},
+              success:function(data)
+              {
+               // alert(data);
+                $('#alert').show();
+               // console.log(data);
+               // alert(data);
+                $('#success_message').html(data);
+                $('#success_message').css('color','white');
+              }
             })
 
 
@@ -502,19 +569,7 @@ $('#alert').hide();
                //alert(total);
                $('#witdraw').val(show);
 
-//               alert(id);
 
-            //   var availablebalance =  $('#availablebalancestore').val();
-            //   alert(id);
-            // //  alert(availablebalance);
-               
-            //     if(id > availablebalance)
-            //     {
-            //          $('#witdraw').hide();
-            //          $('#withdraw').val("");
-            //    }else {
-            //      $('#witdraw').show();
-               // alert(id); alert(availablebalance);
                 
                });
                

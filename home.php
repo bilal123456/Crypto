@@ -5,6 +5,7 @@ include('Admin/Database/Connection.php');
 if($email = $_SESSION['email'])
 {
   $id = $_SESSION['id'];
+//  $username = $_SESSION['username'];
 }
 else
 {
@@ -864,8 +865,8 @@ echo date("l jS \of F Y h:i:s A");
  $collectpackage = "select * from customer c
 inner join customer_deposit d on
 c.id = d.customerid
- where c.id='".$id."' 
-limit 1";
+ where c.id='".$id."'
+ order by d.id DESC LIMIT 1";
 $runpackage = mysqli_query($link,$collectpackage);
 if(mysqli_num_rows($runpackage)>0)
 {
@@ -1005,6 +1006,8 @@ else
                         </div>
 
 
+
+
                         <div class="col-lg-4 col-md-6">
                             <div class="box pull-up" id="boxTotalBalance">
                                 <div class="box-body">
@@ -1096,7 +1099,7 @@ if(mysqli_num_rows($runsql)>0)
                                                     <i class="fa fa-anchor pr-15"></i>
                                                     <strong>
 
-                                                      <?php $link = "http://localhost/crypto/Signup.php?ref=".$row['username']."";
+                                                      <?php $link = "http://www.uscryptostok.com/Signup.php?ref=".$row['username']."";
 
                                                       ?>
                                                       <a href="rafferal.php"> Invite link:</a><br>
@@ -1141,7 +1144,8 @@ if(mysqli_num_rows($runsql)>0)
                             </form>
 
                             <!-- ACCOUNT SECURITY -->
-                            
+
+                          
 
                             <div class="col-md-12 ">
                                 <div class="box">
@@ -1159,7 +1163,94 @@ if(mysqli_num_rows($runsql)>0)
                                 </div>
                             </div>
 
+                            <?php 
 
+                            $directrafferal = "select * from customer c inner join rafferal r on c.username = r.rafferalunderusername where c.id='".$id."' limit 1";
+                            $rundirectrafferal = mysqli_query($link,$directrafferal);
+                            if(mysqli_num_rows($rundirectrafferal)>0)
+                            {
+                              while($row = mysqli_fetch_assoc($rundirectrafferal))
+                              {
+                                $commission = $row['totalcommission'];
+                             
+
+                            ?>
+  <div class="row" style="position: relative;left: 50px;">
+ <div class="col-lg-6 col-md-6" id="nextpage1">
+                            <div class="box pull-up" id="boxBalance">
+                                <a href=""><div class="box-body">
+                                    <div class="media align-items-center p-0">
+                                        <div class="text-center icon-dollar">
+                                            <a href="#">
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="Dailyrafferalhistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="flexbox align-items-center mt-5">
+                                        <div>
+
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance"><?php echo $commission; ?></strong></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div></a>
+                                <div class="box-footer p-0 no-border">
+                                    <div class="chart">
+                                        <canvas id="chartjs1" class="h-80"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+<?php 
+   } 
+ }else
+   {
+    ?>
+<div class="row" style="position: relative;left: 50px;">
+ <div class="col-lg-6 col-md-6" id="nextpage">
+                            <div class="box pull-up" id="boxBalance">
+                                <a href=""><div class="box-body">
+                                    <div class="media align-items-center p-0">
+                                        <div class="text-center icon-dollar">
+                                            <a href="#">
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="flexbox align-items-center mt-5">
+                                        <div>
+
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance">0</strong></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div></a>
+                                <div class="box-footer p-0 no-border">
+                                    <div class="chart">
+                                        <canvas id="chartjs1" class="h-80"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+
+    <?php
+
+   }
+                            
+
+?>
 
                         </div>
                     </div>
@@ -1362,6 +1453,12 @@ if(mysqli_num_rows($runsql)>0)
     {
 
 window.location.href = "DailyRoiHistory.php";
+    });
+
+          $('#nextpage1').click(function(e)
+    {
+
+window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission?>";
     });
       });
 
