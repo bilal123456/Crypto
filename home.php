@@ -899,7 +899,7 @@ else
  
 
 <?php 
-$selectroidata = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
+ $selectroidata = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
 $runselectroidata = mysqli_query($link,$selectroidata);
 if(mysqli_num_rows($runselectroidata)>0)
 {
@@ -913,14 +913,14 @@ if(mysqli_num_rows($runselectroidata)>0)
     $endday = $row['endday'];
     $currentnewdate = date("Y/m/d");
 
-  echo  $start_date = strtotime($startdate); 
-echo $end_date = strtotime($currentdate); 
-echo $showdatedifference =  ($end_date - $start_date)/60/60/24; 
+    $start_date = strtotime($startdate); 
+ $end_date = strtotime($currentdate); 
+ $showdatedifference =  ($end_date - $start_date)/60/60/24; 
     if($showdatedifference >= 0)
     {
       
 
-  echo    $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
+      $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
       $rungetagainlogin = mysqli_query($link,$getagainlogin);
       if(mysqli_num_rows($rungetagainlogin) > 0)
       {
@@ -928,14 +928,14 @@ echo $showdatedifference =  ($end_date - $start_date)/60/60/24;
       }
       else
       {
-    echo    $start_date = strtotime($startdate);
-   echo   $endnewdate = strtotime($currentnewdate);
-    echo  $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
+        $start_date = strtotime($startdate);
+      $endnewdate = strtotime($currentnewdate);
+      $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
 
 
-   echo    $newdailyroidadd =   $showdatedifference * $dailyroiadd;
-   echo    $updatestartdae =  $showdatedifference;
-echo  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
+       $newdailyroidadd =   $showdatedifference * $dailyroiadd;
+       $updatestartdae =  $showdatedifference;
+  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
 
 
 $run  = mysqli_query($link,$insertsss);
@@ -1147,24 +1147,10 @@ if(mysqli_num_rows($runsql)>0)
 
                           
 
-                            <div class="col-md-12 ">
-                                <div class="box">
-                                  <div class="box-header">
-                                    <h4 class="box-title">Tutorials and Materials</h4>
-                                    <div class="box-controls pull-right">
-                                      <a class="btn btn-sm btn-info" href="ShowVedio.php">Click here</a>
-                                    </div>
-                                  </div>
-
-                                  <div class="box-body">
-                                    <p>See our videos explaining step by step the  <b style="color: green; font-size: 20px;">Us Crypto Stock</b>.</p>
-                                    <p>Take your doubts along with our videos that will be posted on this page so that you can enjoy all the benefits of the best investment company in the world.</p>
-                                  </div>
-                                </div>
-                            </div>
+                         
 
                             <?php 
-
+include('Admin/Database/Connection.php');
 
                             $directrafferal = "select * from customer c inner join rafferal r on c.username = r.rafferalunderusername where c.id='".$id."' limit 1";
 
@@ -1183,7 +1169,7 @@ if(mysqli_num_rows($runsql)>0)
 
                             ?>
   <div class="row" style="position: relative;left: 50px;">
- <div class="col-lg-6 col-md-6" id="nextpage1">
+ <div class="col-lg-4 col-md-6" id="nextpage1">
                             <div class="box pull-up" id="boxBalance">
                                 <a href=""><div class="box-body">
                                     <div class="media align-items-center p-0">
@@ -1218,9 +1204,10 @@ if(mysqli_num_rows($runsql)>0)
    } 
  }else
    {
+   $commission = 0;
     ?>
-<div class="row" style="position: relative;left: 50px;">
- <div class="col-lg-6 col-md-6" id="nextpage">
+<div class="row" style="position: relative;left: 120px;">
+  <div class="col-lg-5 col-md-6" id="nextpage1">
                             <div class="box pull-up" id="boxBalance">
                                 <a href=""><div class="box-body">
                                     <div class="media align-items-center p-0">
@@ -1230,7 +1217,7 @@ if(mysqli_num_rows($runsql)>0)
                                             </a>
                                         </div>
                                         <div>
-                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="#" style="color: #03a9f3;">Direct Rafferal</a></h4>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
@@ -1260,6 +1247,22 @@ if(mysqli_num_rows($runsql)>0)
                             
 
 ?>
+
+   <div class="col-md-12">
+                                <div class="box">
+                                  <div class="box-header">
+                                    <h4 class="box-title">Tutorials and Materials</h4>
+                                    <div class="box-controls pull-right">
+                                      <a class="btn btn-sm btn-info" href="ShowVedio.php">Click here</a>
+                                    </div>
+                                  </div>
+
+                                  <div class="box-body">
+                                    <p>See our videos explaining step by step the  <b style="color: green; font-size: 20px;">Us Crypto Stock</b>.</p>
+                                    <p>Take your doubts along with our videos that will be posted on this page so that you can enjoy all the benefits of the best investment company in the world.</p>
+                                  </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -1364,7 +1367,7 @@ if(mysqli_num_rows($runsql)>0)
 
   <script src="./dist/sidebar-menu.js"></script>
   <script>
-    $.sidebarMenu($('.sidebar-menu'))
+   // $.sidebarMenu($('.sidebar-menu'))
   </script>
 <script type="text/javascript">
     
@@ -1467,7 +1470,7 @@ window.location.href = "DailyRoiHistory.php";
           $('#nextpage1').click(function(e)
     {
 
-window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission?>";
+window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission;?>";
 
     });
   
@@ -1504,6 +1507,10 @@ window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $
  
  
 </style>
+<script type="text/javascript">
+  
+
+</script>
 
 </body>
 </html>

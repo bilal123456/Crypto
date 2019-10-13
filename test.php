@@ -2,8 +2,17 @@
 <html>
 <?php session_start();
 include('Admin/Database/Connection.php');
-$email = $_SESSION['email'];
-$id = $_SESSION['id'];
+if($email = $_SESSION['email'])
+{
+  $id = $_SESSION['id'];
+//  $username = $_SESSION['username'];
+}
+else
+{
+  header("Location:login.html");
+}
+
+
 ?>
 <html lang="en">
     <head>
@@ -14,7 +23,7 @@ $id = $_SESSION['id'];
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>FXTRADING CORP.</title>
+        <title>Us Crypto Stock</title>
         <link rel="icon" href="/static/assets/img/favicon.d1b45b458ef6.png" />
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.d59729439a20.css">
@@ -86,7 +95,6 @@ $id = $_SESSION['id'];
 }
 
 
-  <link rel="stylesheet" href="./dist/sidebar-menu.css">
 </style>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -112,7 +120,7 @@ $id = $_SESSION['id'];
 
     </head>
 
-    <body>
+
 <body class="hold-transition skin-green">
         
         
@@ -130,106 +138,16 @@ $id = $_SESSION['id'];
             
             </a>
             <!-- Header Navbar -->
-            <nav class="navbar navbar-static-top">
+            <nav id="menu-icon" class="navbar navbar-static-top" style="background-color: #9eba46;">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+              <div id="hamburger"></div>
+                <a href="#" class="sidebar-toggle"  data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
                 </a>
 
-                <div class="col-5">
-                 
-<div class="text-center">
-    <form id="locale_switcher" action="/i18n/setlang/" method="post"><input type="hidden" name="csrfmiddlewaretoken" value="D6AdBz0fvFJI5HxRhhxB5sRBrrUsKM1fdQJxPiqotpq54I8RwArUrQ6q0rrKUVHq">
-        <input name="next" type="hidden" value="">
-        <select class="select-translate col-md-6" name="language" onchange="$('#locale_switcher').submit()">
-        
-        
-        
-        
-            
-            <option data-image="/static/assets/img/en.e499f1fbaeb0.png" value="en" selected="">
-            
-            English (en)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/pt-br.3fc8860c56a9.png" value="pt-br">
-            
-            Português Brasileiro (pt-br)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/zh-hans.00d7b6d94371.png" value="zh-hans">
-            
-            简体中文 (zh-hans)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/ko.b026a63067e5.png" value="ko">
-            
-            한국어 (ko)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/ja.8e69fa7dddb9.png" value="ja">
-            
-            日本語 (ja)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/es.fed7d0ce876b.png" value="es">
-            
-            español (es)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/it.cc79b1867397.png" value="it">
-            
-            italiano (it)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/vi.fe6804314ec8.png" value="vi">
-            
-            Tiếng Việt (vi)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/ar.ec114d74cb14.png" value="ar">
-            
-            العربيّة (ar)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/ru.b36b3e38b06f.png" value="ru">
-            
-            Русский (ru)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/de.cc23f204eaad.png" value="de">
-            
-            Deutsch (de)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/hi.d51ec02ec1a8.png" value="hi">
-            
-            Hindi (hi)
-            </option>
-        
-            
-            <option data-image="/static/assets/img/th.5fd4b8d56250.png" value="th">
-            
-            ภาษาไทย (th)
-            </option>
-        
-        </select>
-        <noscript>
-            <input type="submit" value="Set" />
-        </noscript>
-    </form>
 </div>
+                <div class="col-5">
+
                 </div>
 
                 <div class="navbar-custom-menu">
@@ -245,32 +163,13 @@ $id = $_SESSION['id'];
                                 </a>
                             </form>
                         </li>
-                        <!-- User Account -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ion ion-person"></i>
-                            </a>
-                            <ul class="dropdown-menu scale-up">
-                                <li class="user-body">
-                                    <div class="row no-gutters">
-                                        <div class="col-12 text-left">
-                                            <a href="/profile/">
-                                            <i class="ion ion-person"></i>My Profile</a>
-                                        </div>
-                                        <div role="separator" class="divider col-12"></div>
-                                        <div class="col-12 text-left">
-                                            <a href="/logout">
-                                            <i class="fa fa-power-off"></i>Logout</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-                                </li>
-                            </ul>
-                        </li>
+                      
                     </ul>
                 </div>
             </nav>
         </header>
+
+       
 
         
         <aside class="main-sidebar" style="background-color: #1A2226 !important;">
@@ -281,7 +180,7 @@ $id = $_SESSION['id'];
                     <div class="ulogo">
                         <a href="/">
                             <!-- logo for regular state and mobile devices -->
-                            <img src="img/Untitled (5).png">
+                            <img src="img/Untitled (5).png" style="position: relative;top: -30px;">
                            
                         </a>
                     </div>
@@ -299,14 +198,14 @@ $id = $_SESSION['id'];
         <a href="cryptopackage.html">
           <i class="fa fa-files-o"></i>
           <span>Package</span>
-         
+           <i class="fa fa-angle-left pull-right"></i>
         </a>
        
       </li>
       <li>
         <a href="rafferal.php">
           <i class="fa fa-th"></i> <span>Network</span>
-          
+            <i class="fa fa-angle-left pull-right"></i>
         </a>
       </li>
       <li>
@@ -316,6 +215,12 @@ $id = $_SESSION['id'];
           <i class="fa fa-angle-left pull-right"></i>
         </a>
        
+        <ul class="sidebar-submenu">
+           <li><a href="withdraw.php"></i>Withdraw </a></li>
+           <li><a href="history.php"></i>Withdraw Report</a></li>
+         
+          
+        </ul>
       </li>
     
       <li>
@@ -325,90 +230,49 @@ $id = $_SESSION['id'];
         </a>
 
         <ul class="sidebar-submenu">
-           <li><a href="contactus.php"><i class="fa fa-circle-o"></i>Add ticket</a></li>
-          <li><a href="tickets.php"><i class="fa fa-circle-o"></i>Your Tickets</a></li>
+           <li><a href="contactus.php"></i>Add ticket</a></li>
+          <li><a href="tickets.php"></i>Your Tickets</a></li>
           
         </ul>
       </li>
-        <li>
+
+       <li>
+        <a href="#">
+          <i class="fa fa-edit"></i> <span>Materials</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+
+        <ul class="sidebar-submenu">
+           <li><a href="ShowImages.php"></i>Image</a></li>
+          <li><a href="ShowVedio.php"></i>Vedio</a></li>
+          
+        </ul>
+      </li>
+
+
+      <li>
         <a href="#">
           <i class="fa fa-edit"></i> <span>Setting</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
 
         <ul class="sidebar-submenu">
-           <li><a href="changeprofile.php"><i class="fa fa-circle-o"></i>Profile Setting</a></li>
-          <li><a href="changepassword.php"><i class="fa fa-circle-o"></i>Change Password</a></li>
+           <li><a href="changepassword.php"></i>Change Password</a></li>
+          <li><a href="changeprofile.php"></i>Profile Setting</a></li>
           
         </ul>
       </li>
+
+
       <li>
-        <a href="#">
-          <i class="fa fa-table"></i> <span>Tables</span>
+        <a href="logout.php">
+          <i class="fa fa-pie-chart"></i>
+          <span>Logout</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
-        <ul class="sidebar-submenu">
-          <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-          <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-        </ul>
+       
       </li>
-      <li>
-        <a href="../calendar.html">
-          <i class="fa fa-calendar"></i> <span>Calendar</span>
-          <small class="label pull-right label-danger">3</small>
-        </a>
-      </li>
-      <li>
-        <a href="../mailbox/mailbox.html">
-          <i class="fa fa-envelope"></i> <span>Mailbox</span>
-          <small class="label pull-right label-warning">12</small>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-folder"></i> <span>Examples</span>
-          <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="sidebar-submenu">
-          <li><a href="../examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-          <li><a href="../examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-          <li><a href="../examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-          <li><a href="../examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-          <li><a href="../examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-          <li><a href="../examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-          <li><a href="../examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-          <li><a href="../examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-          <li><a href="../examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-share"></i> <span>Multilevel</span>
-          <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="sidebar-submenu">
-          <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          <li>
-            <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
-            <ul class="sidebar-submenu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-              <li>
-                <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="sidebar-submenu">
-                  <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-        </ul>
-      </li>
-      <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-      <li class="sidebar-header">LABELS</li>
-      <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-      <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+        
     </ul>
   </section>
         </aside>
@@ -440,9 +304,9 @@ $id = $_SESSION['id'];
 
                             <!-- ALERTS -->
                             
-                            <div class="alert alert-info  alert-with-icon" data-notify="container">
+                            <div class="alert alert-info  alert-with-icon" data-notify="container" style="height: 90px;">
                                 <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="X">
-                                    <i class="material-icons">X</i>
+                                  
                                 </button>
                                  <?php 
                                    
@@ -473,7 +337,7 @@ $text = "No Notification";
                             
                             <div class="alert alert-danger  alert-with-icon" data-notify="container">
                                 <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="X">
-                                    <i class="material-icons">X</i>
+                                  
                                 </button>
                                 <span data-notify="message"><b>Next day withdrawal release - </b>10/20, October 20.</span>
                             </div>
@@ -499,150 +363,382 @@ echo date("l jS \of F Y h:i:s A");
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="">
+                                <div class="">
+                                  
+
+
 
 <div class="row">
                         <div class="col-12">
                             <div class="box box-inverse box-dark">
                                 <div class="box-body tickers-block">
-                                    <div class="tickercontainer" style="height: auto; overflow: hidden;"><div class="mask">
+                                    <div class="tickercontainer" style="height: auto; overflow: hidden;"><div class="mask"><ul id="webticker-1" style="position: relative; overflow: hidden; float: left; font: bold 10px Verdana; list-style-type: none; margin: 0px; padding: 0px; width: 24522px; transition-timing-function: linear; transition-duration: 2.67812s; left: -133.906px;">
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
 
-                                      <ul id="webticker-1" style="position: relative; overflow: hidden; float: left; font: bold 10px Verdana; list-style-type: none; margin: 0px; padding: 0px; width: 3240.25px; transition-timing-function: linear; transition-duration: 2.49156s; left: -124.578px;">
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    <li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc-XMR"></i> XMR
-                                            <span class="text-green1"> $55.09</span>
+
+
+                                   <li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc DASH"></i> DASH
-                                            <span class="text-green"> $69.57</span>
+
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc BTC"></i> BTC
-                                            <span class="text-green"> $8209.68</span>
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc ETH"></i> ETH
-                                            <span class="text-green"> $174.65</span>
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc XRP"></i> XRP
-                                            <span class="text-green"> $0.25</span>
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc LTC"></i> LTC
-                                            <span class="text-green"> $55.01</span>
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc XMR"></i> XMR
-                                            <span class="text-green"> $55.09</span>
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc DASH"></i> DASH
-                                            <span class="text-green"> $69.57</span>
+
+
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc BTC"></i> BTC
-                                            <span class="text-green"> $8209.68</span>
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc ETH"></i> ETH
-                                            <span class="text-green"> $174.65</span>
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc XRP"></i> XRP
-                                            <span class="text-green"> $0.25</span>
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc LTC"></i> LTC
-                                            <span class="text-green"> $55.01</span>
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc XMR"></i> XMR
-                                            <span class="text-green"> $55.09</span>
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc DASH"></i> DASH
-                                            <span class="text-green"> $69.57</span>
+
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc BTC"></i> BTC
-                                            <span class="text-green"> $8209.68</span>
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc ETH"></i> ETH
-                                            <span class="text-green"> $174.65</span>
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc XRP"></i> XRP
-                                            <span class="text-green"> $0.25</span>
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc LTC"></i> LTC
-                                            <span class="text-green"> $55.01</span>
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc XMR"></i> XMR
-                                            <span class="text-green"> $55.09</span>
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
                                         </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc DASH"></i> DASH
-                                            <span class="text-green"> $69.57</span>
+
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc BTC"></i> BTC
-                                            <span class="text-green"> $8209.68</span>
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc ETH"></i> ETH
-                                            <span class="text-green"> $174.65</span>
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc XRP"></i> XRP
-                                            <span class="text-green"> $0.25</span>
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
                                         </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
-                                            <i class="cc LTC"></i> LTC
-                                            <span class="text-green"> $55.01</span>
-                                        </li></ul><span class="tickeroverlay-left" style="display: none;">&nbsp;</span><span class="tickeroverlay-right" style="display: none;">&nbsp;</span></div></div>
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+<li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img  src="images/BTC.svg" width="32" height="32"> Bitcoin cash
+                                            <span class="text-green1"> $69.57</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/BTC.svg" width="32" height="32"> Bitcoin 
+                                            <span class="text-green2"> $8209.68</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i><img src="images/ETH.svg" width="32" height="32"> ETHREM
+                                            <span class="text-green3"> $174.65</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/LTC.svg" width="32" height="32"> Litecoin
+                                            <span class="text-green4"> $0.25</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> <img src="images/XRP.svg" width="32" height="32"> Ripple
+                                            <span class="text-green5"> $55.01</span>
+                                        </li><li style="white-space: nowrap; float: left; padding: 0px 7px;">
+                                            <i class=""></i> </i><img src="images/ETH.svg" width="32" height="32">Ethrem Classic
+                                            <span class="text-green6"> $55.09</span>
+                                        </li><li class="last" style="white-space: nowrap; float: left; padding: 0px 7px;">
+
+                                           
+                                          
+                                          
+                                           
                                 </div>
                             </div>
                         </div>
                     </div>
-</marquee>
-   <!--                  <div class="row">
-                        <div class="col-12">
-                            <div class="box box-inverse box-dark">
-                                <div class="box-body tickers-block">
-                                    <style type="text/css">
-                                        ul li span img 
-                                        {
-                                            position: relative;
-                                            top: 10px;
-                                            white-space: nowrap;
-                                        }
-                                    </style>
-                                  
-    <ul class="marquee" data-duplicated='true' data-direction='left'>
-        <li><span> <img src="images/BTC.svg" width="32" height="32"></span>&nbsp;&nbsp;<span id="textcolor" style="color: yellow;">BITCOIN</span>
-            <ul>
-                <ol id="a"></ol>
-                
-            </ul>
-        </li>
-    <li id=""><span> <img src="images/BTC.svg" width="32" height="32"></span>&nbsp;&nbsp;<span id="textcolor"style="color: yellow;">BITCOIN Cash</span>
-        <ul>
-            <ol id="b"></ol>
-        </ul>
-    </li>
-    <li id="l"><span> <img src="images/ETH.svg" width="32" height="32"></span>&nbsp;&nbsp;<span style="color: yellow;" id="textcolor">ETHREM
-</span>        <ul>
-            <ol id="c"></ol>
-        </ul>
-    </li>
-    <li id="b"><span> <img src="images/LTC.svg" width="32" height="32"></span>&nbsp;&nbsp;<span id="textcolor" style="color: yellow;">LITECOI</span>
-            <ul>
-                <ol id="d"></ol>
-            </ul>
-        </li>
-        <li id="b"><span> <img src="images/XRP.svg" width="32" height="32"></span>&nbsp;&nbsp;<span id="textcolor" style="color: yellow;">RIPPLE</span>            <ul>
-                <ol id="e"></ol>
-            </ul>
-        </li>
-       <li id="b"><span> <img src="images/BTC.svg" width="32" height="32"></span>&nbsp;&nbsp;<span style="color: yellow;">ETHREM CLASSIC</span>
-            <ul>
 
-                <ol id="g"></ol>
-            </ul>
-        </li> -->
+
+                                    
+                                  
+
         <!-- <li id="b">ENJ/USD
             <ul>
                 <ol id="h"></ol>
@@ -766,19 +862,13 @@ echo date("l jS \of F Y h:i:s A");
                                             </a>
                                         </div>
                                         <div>
-                                            <h3 class="no-margin text-bold">Package</h3>
-                                        </div>
-                                    </div>
-                                    <div class="flexbox align-items-center mt-5">
-                                        <div>
-                                            <p class="no-margin font-weight-600 dollar-value">
 
 <?php  
  $collectpackage = "select * from customer c
 inner join customer_deposit d on
 c.id = d.customerid
- where c.id='".$id."' 
-limit 1";
+ where c.id='".$id."'
+ order by d.id DESC LIMIT 1";
 $runpackage = mysqli_query($link,$collectpackage);
 if(mysqli_num_rows($runpackage)>0)
 {
@@ -786,13 +876,91 @@ if(mysqli_num_rows($runpackage)>0)
     {
         $package = $row['package'];
         $amount = $row['amount'];
- ?>                                           
 
-    <span><?php echo $package; ?> <strong id="spanBalance"><?php echo $amount ?></strong></span>
- <?php
     }
 
 }
+else
+{
+  $package = "";
+  $amount = "0";
+}
+
+
+?>
+
+                                            <h3 class="no-margin text-bold" style="color: #03a9f3"><?php echo $package; ?> Package</h3>
+                                        </div>
+                                    </div>
+                                    <div class="flexbox align-items-center mt-5">
+                                        <div>
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                          
+
+    <span style="position: relative;left: 20px;">U$ <strong id="spanBalance" style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $amount ?></strong></span>
+ 
+
+<?php 
+ $selectroidata = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
+$runselectroidata = mysqli_query($link,$selectroidata);
+if(mysqli_num_rows($runselectroidata)>0)
+{
+  while($row = mysqli_fetch_assoc($runselectroidata))
+  {
+    $startdate = $row['start_date'];
+    $currentdate = $row['current_date'];
+    $dailyroiadd = $row['dailyroiadd'];
+    $startday = $row['startday'];
+    $addroi = $row['addroi'];
+    $endday = $row['endday'];
+    $currentnewdate = date("Y/m/d");
+
+    $start_date = strtotime($startdate); 
+ $end_date = strtotime($currentdate); 
+ $showdatedifference =  ($end_date - $start_date)/60/60/24; 
+    if($showdatedifference >= 0)
+    {
+      
+
+      $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
+      $rungetagainlogin = mysqli_query($link,$getagainlogin);
+      if(mysqli_num_rows($rungetagainlogin) > 0)
+      {
+        break;
+      }
+      else
+      {
+        $start_date = strtotime($startdate);
+      $endnewdate = strtotime($currentnewdate);
+      $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
+
+
+       $newdailyroidadd =   $showdatedifference * $dailyroiadd;
+       $updatestartdae =  $showdatedifference;
+  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
+
+
+$run  = mysqli_query($link,$insertsss);
+
+
+
+// echo "<script>alert($newdailyroidadd)</script>";
+//         echo "<script>alert($updatestartdae)</script>";
+//         echo "<script>alert($insertsss)</script>";
+
+    }
+
+  }
+
+
+
+  }
+}
+else
+{
+  $dailyroiadd = "0";
+}
+
 
 
 ?>
@@ -809,9 +977,9 @@ if(mysqli_num_rows($runpackage)>0)
                             </div>
                         </div>
 
-                          <div class="col-lg-4 col-md-6">
+                         <div class="col-lg-4 col-md-6" id="nextpage">
                             <div class="box pull-up" id="boxBalance">
-                                <div class="box-body">
+                                <a href=""><div class="box-body">
                                     <div class="media align-items-center p-0">
                                         <div class="text-center icon-dollar">
                                             <a href="#">
@@ -819,17 +987,18 @@ if(mysqli_num_rows($runpackage)>0)
                                             </a>
                                         </div>
                                         <div>
-                                            <h4 class="no-margin text-bold">Package Roi Income</h4>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #03a9f3;">Daily Roi Income</a></h4>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
                                         <div>
-                                            <p class="no-margin font-weight-600 dollar-value">
-                                                <span>U$ <strong id="spanBalance">0.00</strong></span>
+
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance"><?php echo $dailyroiadd; ?></strong></span>
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div></a>
                                 <div class="box-footer p-0 no-border">
                                     <div class="chart">
                                         <canvas id="chartjs1" class="h-80"></canvas>
@@ -837,6 +1006,8 @@ if(mysqli_num_rows($runpackage)>0)
                                 </div>
                             </div>
                         </div>
+
+
 
 
                         <div class="col-lg-4 col-md-6">
@@ -849,14 +1020,34 @@ if(mysqli_num_rows($runpackage)>0)
                                             </a>
                                         </div>
                                         <div>
-                                            <h3 class="no-margin text-bold">Available Balance</h3>
+                                            <h3 class="no-margin text-bold" style="color: #03a9f3;">Available Balance</h3>
                                         </div>
                                     </div>
                                     <div class="flexbox align-items-center mt-5">
                                         <div>
-                                            <p class="no-margin font-weight-600 dollar-value">
-                                                <span>U$ <strong id="spanTotalBalance">0.00</strong></span>
+                                            <?php 
+                                          $selectroidatanew = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
+$runselectroidatanew = mysqli_query($link,$selectroidatanew);
+if(mysqli_num_rows($runselectroidatanew)>0)
+{
+
+
+while($rowselectroidatanew = mysqli_fetch_assoc($runselectroidatanew))
+{
+  $dailyroinewupdate = $rowselectroidatanew['addroi'];
+
+  }
+
+  }
+  else
+  {
+    $dailyroinewupdate = "0";
+  }
+?>
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance" ><?php echo $dailyroinewupdate;  ?></strong></span>
                                             </p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -868,38 +1059,59 @@ if(mysqli_num_rows($runpackage)>0)
                             </div>
                         </div>
                     </div>
+<?php 
+
+$sql = "SELECT * FROM `customer` c inner join customer_deposit e on e.customerid = c.id where c.id='".$id."' limit 1";
+$runsql = mysqli_query($link,$sql);
+if(mysqli_num_rows($runsql)>0)
+{
+  while($row = mysqli_fetch_assoc($runsql))
+  {
+    ?>
+
+
+
+
 
                     <div class="row">
                         <div class="col-lg-3 col-12">
                             <!-- Profile Image -->
                             <div class="box bg-inverse bg-dark bg-hexagons-white" id="boxResume">
                                 <div class="box-body box-profile">
-                                    <h3 class="profile-username text-center"><span id="spanResumeUsername"></span></h3>
+                                    <h3 class="profile-username text-center"><span id="spanResumeUsername"><?php echo $row['username']; ?></span></h3>
                                     <h3 class="profile-username text-center" id="itemCarrerImg"></h3>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="profile-user-info">
                                                 <p>
                                                     <i class="fa fa-paper-plane pr-15"></i>
-                                                    <strong>Plan:</strong> <span id="spanPlanStr"></span>
+                                                    <strong>Plan:<?php echo $row['package']; ?></strong> <span id="spanPlanStr"></span>
                                                 </p>
                                                 <p>
                                                     <i class="fa fa-calendar pr-15"></i>
-                                                    <strong>Status: </strong> <span id="spanResumoStatus"></span>
+                                                    <strong>Status: <?php if($row['status'] == '0'){echo "pending";} else {echo "Active";} ?> </strong> <span id="spanResumoStatus"></span>
                                                 </p>
                                                 <p>
                                                     <i class="fa fa-tree pr-15"></i>
                                                     <strong>Binary qualified:</strong>
-                                                    <span id="spanResumoBinaryQualify"></span>
+                                                    <span id="spanResumoBinaryQualify">NO</span>
                                                 </p>
-                                                <p>
-                                                    <i class="fa fa-star pr-15"></i>
-                                                    <strong>Carrer points: </strong>
-                                                    <span id="spanResumoCarrerPoints">0</span>
-                                                </p>
+                                               
                                                 <p>
                                                     <i class="fa fa-anchor pr-15"></i>
-                                                    <strong>Invite link: </strong>
+                                                    <strong>
+
+                                                      <?php $link = "http://www.uscryptostok.com/Signup.php?ref=".$row['username']."";
+
+                                                      ?>
+                                                      <a href="rafferal.php"> Invite link:</a><br>
+
+                                                    
+
+                                                     
+                                                     
+
+                                                   </strong>
                                                     </p><div class="clearfix"></div>
                                                     <div id="itemInviteLink">
                                                     <h3>You need an activated plan for invite users.</h3>
@@ -913,7 +1125,13 @@ if(mysqli_num_rows($runpackage)>0)
                                 <!-- /.box-body -->
 
                             </div>
-                            <!-- /.box -->
+                        <?php
+  }
+}
+
+
+
+?>
                         </div>
                         <div class="col-lg-9">
                             <!-- TEAMS -->
@@ -928,25 +1146,123 @@ if(mysqli_num_rows($runpackage)>0)
                             </form>
 
                             <!-- ACCOUNT SECURITY -->
-                            
+
+                          
 
                             <div class="col-md-12 ">
                                 <div class="box">
                                   <div class="box-header">
                                     <h4 class="box-title">Tutorials and Materials</h4>
                                     <div class="box-controls pull-right">
-                                      <a class="btn btn-sm btn-info" href="/materials/pdf/">Click here</a>
+                                      <a class="btn btn-sm btn-info" href="ShowVedio.php">Click here</a>
                                     </div>
                                   </div>
 
                                   <div class="box-body">
-                                    <p>See our videos explaining step by step the FXTRADING CORP system.</p>
+                                    <p>See our videos explaining step by step the  <b style="color: green; font-size: 20px;">Us Crypto Stock</b>.</p>
                                     <p>Take your doubts along with our videos that will be posted on this page so that you can enjoy all the benefits of the best investment company in the world.</p>
                                   </div>
                                 </div>
                             </div>
 
+                            <?php 
+include('Admin/Database/Connection.php');
 
+                            $directrafferal = "select * from customer c inner join rafferal r on c.username = r.rafferalunderusername where c.id='".$id."' limit 1";
+
+
+                            $rundirectrafferal = mysqli_query($link,$directrafferal);
+                            if(mysqli_num_rows($rundirectrafferal)>0)
+                            {
+                              while($row = mysqli_fetch_assoc($rundirectrafferal))
+                              {
+
+
+                                $commission = $row['totalcommission'];
+
+
+                             
+
+                            ?>
+  <div class="row" style="position: relative;left: 50px;">
+ <div class="col-lg-6 col-md-6" id="nextpage1">
+                            <div class="box pull-up" id="boxBalance">
+                                <a href=""><div class="box-body">
+                                    <div class="media align-items-center p-0">
+                                        <div class="text-center icon-dollar">
+                                            <a href="#">
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="Dailyrafferalhistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="flexbox align-items-center mt-5">
+                                        <div>
+
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance"><?php echo $commission; ?></strong></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div></a>
+                                <div class="box-footer p-0 no-border">
+                                    <div class="chart">
+                                        <canvas id="chartjs1" class="h-80"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+<?php 
+   } 
+ }else
+   {
+   
+    ?>
+<div class="row" style="position: relative;left: 50px;">
+ <div class="col-lg-6 col-md-6" id="nextpage">
+                            <div class="box pull-up" id="boxBalance">
+                                <a href=""><div class="box-body">
+                                    <div class="media align-items-center p-0">
+                                        <div class="text-center icon-dollar">
+                                            <a href="#">
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="flexbox align-items-center mt-5">
+                                        <div>
+
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance">0</strong></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div></a>
+                                <div class="box-footer p-0 no-border">
+                                    <div class="chart">
+                                        <canvas id="chartjs1" class="h-80"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+
+
+    <?php
+
+
+   }
+                            
+
+?>
 
                         </div>
                     </div>
@@ -1051,7 +1367,7 @@ if(mysqli_num_rows($runpackage)>0)
 
   <script src="./dist/sidebar-menu.js"></script>
   <script>
-    $.sidebarMenu($('.sidebar-menu'))
+   // $.sidebarMenu($('.sidebar-menu'))
   </script>
 <script type="text/javascript">
     
@@ -1064,47 +1380,51 @@ if(mysqli_num_rows($runpackage)>0)
         $.ajax({
             type:'GET',
             url:"http://api.coinlayer.com/api/live?access_key=7b7bf4d01cc6e25eb34b61859858992f",
-            dataType:'json',async: false, 
+            dataType:'json',
             success:function(data)
             {
+             // alert(data);
+              console.log(data);
                 
-                var ABC = data['rates'].BTC
+              //  var ABC = data['rates'].BTC
 
-                var ACP = data["rates"].BTCA
-                var ACT = data["rates"].ETH
-                var AIB = data["rates"].LTC
-                var AST = data["rates"].RIYA
-                var BAR = data["rates"].XLM
-
-
-                var BTCA = data["rates"].BTCA
-                var ENJ = data["rates"].ENJ
-                var ETT = data["rates"].ETT
-                var KIN = data["rates"].KIN
-                var MTL = data["rates"].MTL
+              //  var ACP = data["rates"].BTCA
+                // var ACT = data["rates"].ETH
+                // var AIB = data["rates"].LTC
+                // var AST = data["rates"].RIYA
+                // var BAR = data["rates"].XLM
 
 
-                var MTX = data["rates"].MTX
-                var NULS = data["rates"].NULS
-                var OAX = data["rates"].OAX
-                var SALT = data["rates"].SALT
-                var SBC = data["rates"].SBC
+                // var BTCA = data["rates"].BTCA
+                // var ENJ = data["rates"].ENJ
+                // var ETT = data["rates"].ETT
+                // var KIN = data["rates"].KIN
+                // var MTL = data["rates"].MTL
 
 
+                // var MTX = data["rates"].MTX
+                // var NULS = data["rates"].NULS
+                // var OAX = data["rates"].OAX
+                // var SALT = data["rates"].SALT
+                // var SBC = data["rates"].SBC
 
 
 
-                var ETH = data["rates"].ETH
-                var BTC = data["rates"].BTC
-                var acp = data["rates"].XRP
-                var LTC = data["rates"].LTC
-                var DASH = data["rates"].DASH
+
+
+                // var ETH = data["rates"].ETH
+                // var BTC = data["rates"].BTC
+                // var acp = data["rates"].XRP
+                // var LTC = data["rates"].LTC
+                // var DASH = data["rates"].DASH
             
-$('.text-green1').html(ABC);
+
                 
-                $('#a').html(ABC);$('#b').html(ACP);
-                $('#c').html(ACT);
-                $('#d').html(AIB);$('#e').html(AST);
+                $('.text-green1').html(ABC);$('#.text-green2').html(ACP);
+                $('#.text-green3').html(ACT);
+                $('#.text-green4').html(AIB);$('#.text-green15').html(AST);
+                $('#.text-green6').html(ETH);
+
               // //  $('#f').append(BAR);
               //   $('#g').html(BTCA);
                 // $('#h').append(ENJ);
@@ -1135,14 +1455,186 @@ $('.text-green1').html(ABC);
             }
         })
     })
-    $('.text-green1').html(ABC);
 
-    $('.marquee').marquee({
+    $('.mask').marquee({
   direction: 'left',
   speed:20,
 });
-      });
 
+      $('#nextpage').click(function(e)
+    {
+
+window.location.href = "DailyRoiHistory.php";
+    });
+
+          $('#nextpage1').click(function(e)
+    {
+
+window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission;?>";
+
+    });
+  
+
+  });
+
+
+
+</script>
+<style type="text/css">
+  .text-green1{
+   color:#9eba46;
+  }
+  .text-green2
+  {
+   color:#9eba46;
+  }
+  .text-green3
+  {
+       color:#9eba46;
+  }
+  .text-green4
+  {
+       color:#9eba46;
+  }
+  .text-green5
+  {
+       color:#9eba46;
+  }
+  .text-green6
+  {
+       color:#9eba46;
+  }
+
+  * {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #FAFAFA;
+  color: #22313F;
+  font-family: 'Quattrocento', serif;
+}
+
+#menu-icon {
+  position: fixed;
+  right: 60px;
+  top: 40px;
+  height: 50px;
+  width: 60px;
+}
+#menu-icon:hover {
+  cursor: pointer;
+}
+#menu-icon #hamburger {
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 4px;
+  width: 50px;
+  background-color: #22313F;
+  transition: all .3s;
+}
+#menu-icon #hamburger:before {
+  position:absolute;
+  content: '';
+  height: 4px;
+  width: 40px;
+  top: -10px;
+  background-color: #22313F;
+  transition: all .4s;
+}
+#menu-icon #hamburger:after {
+  position:absolute;
+  content: '';
+  height: 4px;
+  width: 40px;
+  top: 10px;
+  background-color: #22313F;
+  transition: all .3s;
+}
+#menu-icon:hover #hamburger::after,#menu-icon:hover #hamburger::before {
+  width: 50px;
+}
+#menu-icon:hover #hamburger{
+  width: 40px;
+}
+
+#menu-icon #hamburger.active{
+  background-color: rgba(0,0,0,0);
+}
+#menu-icon #hamburger.active:before{
+  transform: rotate(45deg);
+  top:0px;
+  width: 40px;
+}
+#menu-icon #hamburger.active:after{
+  transform: rotate(135deg);
+  top:0px;
+  width: 40px;
+}
+
+#sidebar {
+  position:fixed;
+  width: 300px;
+  left: -300px;
+  height: 100vh;
+  background-color:#22313F;
+  color:#FAFAFA;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% 100%);
+  transition: all .5s;
+}
+#sidebar nav ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  list-style:none;
+  transform:translate(-50%, -50%);
+  text-align:center;
+
+}
+#sidebar nav ul li {
+  font-weight: 590;
+  font-size: 1.1em;
+  margin: 24px;
+} 
+#sidebar nav ul li:hover {
+  cursor:pointer;
+} 
+
+
+
+#sidebar.show-sidebar {
+  left: 0px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transition: all .5s;
+}
+#sidebar.hide-sidebar {
+  left: -300px;
+  -webkit-clip-path: polygon(0% 0%, 0% 0%, 100% 100%, 0% 100%);
+  transition: all .5s;
+}
+#sidebar.original-sidebar {
+  position:fixed;
+  width: 300px;
+  left: -300px;
+  height: 100vh;
+  background-color:#22313F;
+  color:#FAFAFA;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% 100%);
+  transition: all .5s;
+}
+ 
+ 
+</style>
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+  $("#menu-icon").click(function(){
+    $("#hamburger").toggleClass('active');
+    $(".main-sidebar").toggleClass('show-sidebar');
+  });
+});  
 
 </script>
 
