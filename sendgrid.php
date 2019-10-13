@@ -68,47 +68,26 @@ require 'mail/src/SMTP.php';
 
 <?php
 
-// Instantiation and passing `true` enables exceptions
- $mail = new PHPMailer(true);
+$email = "bilalraza203@gmail.com";
+$body = "yes you are done and completed to take a lot of time to invest";
+$subject = "Email Verification";
 
- try {
-     //Server settings
-                         // Enable verbose debug output/     $mail->isSMTP();                                            // Send using SMTP
-     $mail->Host       = 'smtp.zoho.com';  
-     $mail->isSMTP();                   // Set the SMTP server to send through
-     $mail->SMTPAuth   = true; 
-      
-      $mail->SMTPSecure = 'ssl';
-     $mail->CharSet = "UTF-8";  
-     $mail->SMTPDebug = 2;                                  // Enable SMTP authentication
-     $mail->Username   = 'crypto@uscryptostok.com';                     // SMTP username
-     $mail->Password   = 'king5872123';                               // SMTP password
-     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-     $mail->Port       = 25;                                    // TCP port to connect to
+$phpMailer = new PHPMailer(true);
+$phpMailer->isSMTP();
+$phpMailer->Host = "smtp.zoho.com";
+$phpMailer->SMTPAuth = true;
+$phpMailer->Username = "crypto@uscryptostok.com";
+$phpMailer->Password = "king5872123";
+$phpMailer->SMTPSecure = "sls";
+$phpMailer->Port = 587;
+$phpMailer->isHTML(true);
+$phpMailer->CharSet = "UTF-8";
+$phpMailer->setFrom("crypto@uscryptostok.com", "Us Crypto Stock");
+//$phpMailer->From  = $email;
+// $phpMailer->AddCC($email, 'Person One');
+$phpMailer->addAddress($email,'done');
+$phpMailer->Subject = $subject;
+$phpMailer->Body = $body;
+$phpMailer->send();
 
- $companyemail = "bilalraza203@gmail.com";
-     //Recipients
-     $mail->setFrom('bilalraza203@gmail.com', 'Crypto STock');
-     $mail->addAddress('bilalraza203@gmail.com', 'user email');     // Add a recipient
-     $mail->addAddress('ellen@example.com');               // Name is optional
-     $mail->addReplyTo('bilalraza203@gmail.com', 'Information');
-     // $mail->addCC('cc@example.com');
-     // $mail->addBCC('bcc@example.com');
-
-     // Attachments
-     // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-     // Content
-     $mail->isHTML(true);                                  // Set email format to HTML
-     $mail->Subject = 'Crypto Stock Email Verification';
-     $mail->Body    = 'Click Here for this Link <br>
-     <a href="http://localhost/crypto/verify.php?vkey=erew">Activate Account</a>';
-     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-     $mail->send();
-     echo 'Message has been sent';
- } catch (Exception $e) {
-     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
- }
 ?>
