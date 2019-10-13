@@ -899,7 +899,7 @@ else
  
 
 <?php 
-$selectroidata = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
+ $selectroidata = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
 $runselectroidata = mysqli_query($link,$selectroidata);
 if(mysqli_num_rows($runselectroidata)>0)
 {
@@ -913,14 +913,14 @@ if(mysqli_num_rows($runselectroidata)>0)
     $endday = $row['endday'];
     $currentnewdate = date("Y/m/d");
 
-  echo  $start_date = strtotime($startdate); 
-echo $end_date = strtotime($currentdate); 
-echo $showdatedifference =  ($end_date - $start_date)/60/60/24; 
+    $start_date = strtotime($startdate); 
+ $end_date = strtotime($currentdate); 
+ $showdatedifference =  ($end_date - $start_date)/60/60/24; 
     if($showdatedifference >= 0)
     {
       
 
-  echo    $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
+      $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
       $rungetagainlogin = mysqli_query($link,$getagainlogin);
       if(mysqli_num_rows($rungetagainlogin) > 0)
       {
@@ -928,14 +928,14 @@ echo $showdatedifference =  ($end_date - $start_date)/60/60/24;
       }
       else
       {
-    echo    $start_date = strtotime($startdate);
-   echo   $endnewdate = strtotime($currentnewdate);
-    echo  $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
+        $start_date = strtotime($startdate);
+      $endnewdate = strtotime($currentnewdate);
+      $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
 
 
-   echo    $newdailyroidadd =   $showdatedifference * $dailyroiadd;
-   echo    $updatestartdae =  $showdatedifference;
-echo  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
+       $newdailyroidadd =   $showdatedifference * $dailyroiadd;
+       $updatestartdae =  $showdatedifference;
+  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
 
 
 $run  = mysqli_query($link,$insertsss);
@@ -1164,14 +1164,21 @@ if(mysqli_num_rows($runsql)>0)
                             </div>
 
                             <?php 
+include('Admin/Database/Connection.php');
 
                             $directrafferal = "select * from customer c inner join rafferal r on c.username = r.rafferalunderusername where c.id='".$id."' limit 1";
+
+
                             $rundirectrafferal = mysqli_query($link,$directrafferal);
                             if(mysqli_num_rows($rundirectrafferal)>0)
                             {
                               while($row = mysqli_fetch_assoc($rundirectrafferal))
                               {
+
+
                                 $commission = $row['totalcommission'];
+
+
                              
 
                             ?>
@@ -1211,6 +1218,9 @@ if(mysqli_num_rows($runsql)>0)
    } 
  }else
    {
+    if(!$link) {
+                die("Database selection failed: " . mysql_error());
+            }
     ?>
 <div class="row" style="position: relative;left: 50px;">
  <div class="col-lg-6 col-md-6" id="nextpage">
@@ -1245,7 +1255,9 @@ if(mysqli_num_rows($runsql)>0)
 </div>
 
 
+
     <?php
+
 
    }
                             
@@ -1459,8 +1471,11 @@ window.location.href = "DailyRoiHistory.php";
     {
 
 window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission?>";
+
     });
-      });
+  
+
+  });
 
 
 

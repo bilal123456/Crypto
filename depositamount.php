@@ -387,8 +387,7 @@ while($row=mysqli_fetch_assoc($run))
             $run = mysqli_query($link,$insert);
                 if($run)
                 {
-
-            if($Amount >= 200 && $Amount < 650)
+                  if($Amount >= 200 && $Amount < 650)
             {
                 $dailyRoiadd = 0.46;
                 $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
@@ -399,38 +398,27 @@ while($row=mysqli_fetch_assoc($run))
  $dailyRoiadd = 1.73;
 $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
               $insertroiaddrun =  mysqli_query($link,$insertroiadd);
-
-            }   else  if($Amount >= 1500 && $Amount < 2500)
+            }  
+             else  if($Amount >= 1500 && $Amount < 2500)
             {
  $dailyRoiadd = 4.5;
- $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
+  $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
                $insertroiaddrun = mysqli_query($link,$insertroiadd);
             }
-
-
              else  if($Amount >= 2500 && $Amount < 5000)
             {
                  $dailyRoiadd = 7.5;
                  $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
                $insertroiaddrun = mysqli_query($link,$insertroiadd);
                }
-               else  if($Amount >= 5000 && $Amount < 7000)
+               else  if($Amount >= 5000)
             {
- $dailyRoiadd = 16.6;   
- $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
+               $dailyRoiadd = 16.6;  
+              $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
                $insertroiaddrun = mysqli_query($link,$insertroiadd);
-
             }
-            else if($Amount > 7000)
-        {
-            $dailyRoiadd = 23.3;
-            $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
-               $insertroiaddrun = mysqli_query($link,$insertroiadd);
-        }
-                }
 
-
-            $checkrafferal = "SELECT * FROM `rafferal` where newregisterusername='".$fetchusername."' LIMIT 1
+           $checkrafferal = "SELECT * FROM `rafferal` where newregisterusername='".$fetchusername."' LIMIT 1
 ";
 $runcheckrafferal = mysqli_query($link,$checkrafferal);
 if(mysqli_num_rows($runcheckrafferal)>0)
@@ -440,7 +428,7 @@ if(mysqli_num_rows($runcheckrafferal)>0)
         $getaddrafferalcommission = $row['rafferalunderusername'];
     }
 }
-            if($Amount >= 200 && $Amount < 650)
+          if($Amount >= 200 && $Amount < 650)
             {
                 $bonus = 24;
 
@@ -457,6 +445,21 @@ if(mysqli_num_rows($runcheckrafferal)>0)
               $update = "update rafferal set commission='".$bonus."',totalcommission='".$commission."' where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
                 $runupdate = mysqli_query($link,$update);
                 $selecttotalmorecommission = "select * from rafferal where rafferalunderusername='".$getaddrafferalcommission."'";
+                $selecttotalmorecommission = mysqli_query($link,$selecttotalmorecommission);
+                $totalcommissioncount = 0;
+                if(mysqli_num_rows($selecttotalmorecommission)>0)
+                {
+                  while($row = mysqli_fetch_assoc($selecttotalmorecommission))
+                  {
+                      $grandtotalcommission = $row['totalcommission'];
+                      $totalcommissioncount =  $totalcommissioncount + $grandtotalcommission;
+
+
+                  }
+                }
+                 $updaterecord = "update rafferal set totalcommission='".$totalcommissioncount."' where rafferalunderusername='".$getaddrafferalcommission."'";
+                 $runupdaterecord = mysqli_query($link,$updaterecord);
+                  $selecttotalmorecommission = "select * from rafferal where rafferalunderusername='".$getaddrafferalcommission."'";
                 $selecttotalmorecommission = mysqli_query($link,$selecttotalmorecommission);
                 $totalcommissioncount = 0;
                 if(mysqli_num_rows($selecttotalmorecommission)>0)
@@ -488,6 +491,21 @@ if(mysqli_num_rows($runcheckrafferal)>0)
               $update = "update rafferal set commission='".$bonus."',totalcommission='".$commission."' where rafferalunderusername='".$getaddrafferalcommission."' and newregisterusername='".$fetchusername."'";
                 $runupdate = mysqli_query($link,$update);
                 $selecttotalmorecommission = "select * from rafferal where rafferalunderusername='".$getaddrafferalcommission."'";
+                $selecttotalmorecommission = mysqli_query($link,$selecttotalmorecommission);
+                $totalcommissioncount = 0;
+                if(mysqli_num_rows($selecttotalmorecommission)>0)
+                {
+                  while($row = mysqli_fetch_assoc($selecttotalmorecommission))
+                  {
+                      $grandtotalcommission = $row['totalcommission'];
+                      $totalcommissioncount =  $totalcommissioncount + $grandtotalcommission;
+
+
+                  }
+                }
+                 $updaterecord = "update rafferal set totalcommission='".$totalcommissioncount."' where rafferalunderusername='".$getaddrafferalcommission."'";
+                 $runupdaterecord = mysqli_query($link,$updaterecord);
+                  $selecttotalmorecommission = "select * from rafferal where rafferalunderusername='".$getaddrafferalcommission."'";
                 $selecttotalmorecommission = mysqli_query($link,$selecttotalmorecommission);
                 $totalcommissioncount = 0;
                 if(mysqli_num_rows($selecttotalmorecommission)>0)
@@ -534,6 +552,21 @@ if(mysqli_num_rows($runcheckrafferal)>0)
                 }
                  $updaterecord = "update rafferal set totalcommission='".$totalcommissioncount."' where rafferalunderusername='".$getaddrafferalcommission."'";
                  $runupdaterecord = mysqli_query($link,$updaterecord);
+                  $selecttotalmorecommission = "select * from rafferal where rafferalunderusername='".$getaddrafferalcommission."'";
+                $selecttotalmorecommission = mysqli_query($link,$selecttotalmorecommission);
+                $totalcommissioncount = 0;
+                if(mysqli_num_rows($selecttotalmorecommission)>0)
+                {
+                  while($row = mysqli_fetch_assoc($selecttotalmorecommission))
+                  {
+                      $grandtotalcommission = $row['totalcommission'];
+                      $totalcommissioncount =  $totalcommissioncount + $grandtotalcommission;
+
+
+                  }
+                }
+                 $updaterecord = "update rafferal set totalcommission='".$totalcommissioncount."' where rafferalunderusername='".$getaddrafferalcommission."'";
+                 $runupdaterecord = mysqli_query($link,$updaterecord);
             }
             else  if($Amount >= 2500 && $Amount < 5000)
             {
@@ -565,6 +598,21 @@ if(mysqli_num_rows($runcheckrafferal)>0)
                 }
                  $updaterecord = "update rafferal set totalcommission='".$totalcommissioncount."' where rafferalunderusername='".$getaddrafferalcommission."'";
                  $runupdaterecord = mysqli_query($link,$updaterecord);
+                  $selecttotalmorecommission = "select * from rafferal where rafferalunderusername='".$getaddrafferalcommission."'";
+                $selecttotalmorecommission = mysqli_query($link,$selecttotalmorecommission);
+                $totalcommissioncount = 0;
+                if(mysqli_num_rows($selecttotalmorecommission)>0)
+                {
+                  while($row = mysqli_fetch_assoc($selecttotalmorecommission))
+                  {
+                      $grandtotalcommission = $row['totalcommission'];
+                      $totalcommissioncount =  $totalcommissioncount + $grandtotalcommission;
+
+
+                  }
+                }
+                 $updaterecord = "update rafferal set totalcommission='".$totalcommissioncount."' where rafferalunderusername='".$getaddrafferalcommission."'";
+                 $runupdaterecord = mysqli_query($link,$updaterecord);
             }
             else  if($Amount > 5000)
             {
@@ -576,8 +624,10 @@ if(mysqli_num_rows($runcheckrafferal)>0)
 
                     while($row = mysqli_fetch_assoc($runtotalcommission))
                     {
+
                         $commission = $row['totalcommission'];
                         $commission = $commission + $bouns;
+
                     }
                 }
 
@@ -614,18 +664,15 @@ if(mysqli_num_rows($runcheckrafferal)>0)
                 $('#success_message').css('color','white');
 
 
-                window.setTimeout(function(){
 
-       
         window.location.href = 'home.php';
 
     }, 5000);</script>";
-          //  header("Location:history.php");
-            
 
-           
-          }
-         // ob_end_flash();
+
+}
+}
+
           ?>    
            
 

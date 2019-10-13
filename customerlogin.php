@@ -53,13 +53,6 @@ $vkey = md5(time() . $username);
 		if($runinsert)
 		{
 
-
-
-
-
-
-
-
 // Load Composer's autoloader
 
 
@@ -76,6 +69,9 @@ $vkey = md5(time() . $username);
 $phpMailer->isSMTP();
 $phpMailer->Host = "smtp.zoho.com";
 $phpMailer->SMTPAuth = true;
+
+
+
 $phpMailer->Username = "bilalraza203@gmail.com";
 $phpMailer->Password = "king5872123123";
 $phpMailer->SMTPSecure = "sls";
@@ -83,10 +79,7 @@ $phpMailer->Port = 587;
 $phpMailer->isHTML(true);
 $phpMailer->CharSet = "UTF-8";
 $phpMailer->setFrom("info@uscryptostok.com", "Us Crypto Stock");
-//$phpMailer->From  = $email;
-// $phpMailer->AddCC($email, 'Person One');
 $phpMailer->addAddress($email,'Us Crypto Official');
-
 $phpMailer->Subject = $subject;
 $phpMailer->Body = $body;
 $phpMailer->send();
