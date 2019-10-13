@@ -913,14 +913,14 @@ if(mysqli_num_rows($runselectroidata)>0)
     $endday = $row['endday'];
     $currentnewdate = date("Y/m/d");
 
-    $start_date = strtotime($startdate); 
-$end_date = strtotime($currentdate); 
-$showdatedifference =  ($end_date - $start_date)/60/60/24; 
+  echo  $start_date = strtotime($startdate); 
+echo $end_date = strtotime($currentdate); 
+echo $showdatedifference =  ($end_date - $start_date)/60/60/24; 
     if($showdatedifference >= 0)
     {
       
 
-      $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
+  echo    $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
       $rungetagainlogin = mysqli_query($link,$getagainlogin);
       if(mysqli_num_rows($rungetagainlogin) > 0)
       {
@@ -928,14 +928,14 @@ $showdatedifference =  ($end_date - $start_date)/60/60/24;
       }
       else
       {
-        $start_date = strtotime($startdate);
-      $endnewdate = strtotime($currentnewdate);
-      $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
+    echo    $start_date = strtotime($startdate);
+   echo   $endnewdate = strtotime($currentnewdate);
+    echo  $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
 
 
-       $newdailyroidadd =   $showdatedifference * $dailyroiadd;
-       $updatestartdae =  $showdatedifference;
-  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
+   echo    $newdailyroidadd =   $showdatedifference * $dailyroiadd;
+   echo    $updatestartdae =  $showdatedifference;
+echo  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
 
 
 $run  = mysqli_query($link,$insertsss);
