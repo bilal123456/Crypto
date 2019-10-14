@@ -9,7 +9,7 @@ if($email = $_SESSION['email'])
 }
 else
 {
-  header("Location:login.html");
+  header("Location:Login.html");
 }
 
 
@@ -214,6 +214,7 @@ else
         </a>
        
         <ul class="sidebar-submenu">
+           <li><a href="wallet.php"></i>Add Wallet </a></li>
            <li><a href="withdraw.php"></i>Withdraw </a></li>
            <li><a href="history.php"></i>Withdraw Report</a></li>
          
@@ -899,7 +900,7 @@ else
  
 
 <?php 
-$selectroidata = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
+ $selectroidata = "SELECT * FROM `dailyroi` where customerid='".$id."' order by id DESC LIMIT 1";
 $runselectroidata = mysqli_query($link,$selectroidata);
 if(mysqli_num_rows($runselectroidata)>0)
 {
@@ -913,14 +914,14 @@ if(mysqli_num_rows($runselectroidata)>0)
     $endday = $row['endday'];
     $currentnewdate = date("Y/m/d");
 
-  echo  $start_date = strtotime($startdate); 
-echo $end_date = strtotime($currentdate); 
-echo $showdatedifference =  ($end_date - $start_date)/60/60/24; 
+    $start_date = strtotime($startdate); 
+ $end_date = strtotime($currentdate); 
+ $showdatedifference =  ($end_date - $start_date)/60/60/24; 
     if($showdatedifference >= 0)
     {
       
 
-  echo    $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
+      $getagainlogin = "select * from dailyroi where customerid='".$id."' and `current_date`='".$currentnewdate."'";
       $rungetagainlogin = mysqli_query($link,$getagainlogin);
       if(mysqli_num_rows($rungetagainlogin) > 0)
       {
@@ -928,14 +929,14 @@ echo $showdatedifference =  ($end_date - $start_date)/60/60/24;
       }
       else
       {
-    echo    $start_date = strtotime($startdate);
-   echo   $endnewdate = strtotime($currentnewdate);
-    echo  $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
+        $start_date = strtotime($startdate);
+      $endnewdate = strtotime($currentnewdate);
+      $showdatedifference =  ($endnewdate - $start_date)/60/60/24;
 
 
-   echo    $newdailyroidadd =   $showdatedifference * $dailyroiadd;
-   echo    $updatestartdae =  $showdatedifference;
-echo  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
+       $newdailyroidadd =   $showdatedifference * $dailyroiadd;
+       $updatestartdae =  $showdatedifference;
+  $insertsss = "insert into dailyroi(start_date,`current_date`,addroi,startday,endday,dailyroiadd,`status`,customerid) values('".$startdate."','".$currentnewdate."','".$newdailyroidadd."','".$updatestartdae."','".$endday."','".$dailyroiadd."','1','".$id."')";
 
 
 $run  = mysqli_query($link,$insertsss);
@@ -1057,6 +1058,109 @@ while($rowselectroidatanew = mysqli_fetch_assoc($runselectroidatanew))
                             </div>
                         </div>
                     </div>
+
+
+
+
+                            <?php 
+include('Admin/Database/Connection.php');
+
+                            $directrafferal = "select * from customer c inner join rafferal r on c.username = r.rafferalunderusername where c.id='".$id."' limit 1";
+
+
+                            $rundirectrafferal = mysqli_query($link,$directrafferal);
+                            if(mysqli_num_rows($rundirectrafferal)>0)
+                            {
+                              while($row = mysqli_fetch_assoc($rundirectrafferal))
+                              {
+
+
+                                $commission = $row['totalcommission'];
+
+
+                             
+
+                            ?>
+  <div class="row" style="position: relative;left: 380px;">
+<div class="col-lg-12" id="nextpage1">
+                            <div class="box pull-up" id="boxBalance">
+                                <a href=""><div class="box-body">
+                                    <div class="media align-items-center p-0">
+                                        <div class="text-center icon-dollar">
+                                            <a href="#">
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="Dailyrafferalhistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="flexbox align-items-center mt-5">
+                                        <div>
+
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance"><?php echo $commission; ?></strong></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div></a>
+                                <div class="box-footer p-0 no-border">
+                                    <div class="chart">
+                                        <canvas id="chartjs1" class="h-80"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+<?php 
+   } 
+ }else
+   {
+   $commission = 0;
+    ?>
+  <div class="row" style="position: relative;left: 380px;">
+  <div class="col-lg-12" id="nextpage1">
+                            <div class="box pull-up" id="boxBalance">
+                                <a href=""><div class="box-body">
+                                    <div class="media align-items-center p-0">
+                                        <div class="text-center icon-dollar">
+                                            <a href="#">
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="#" style="color: #03a9f3;">Direct Rafferal</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="flexbox align-items-center mt-5">
+                                        <div>
+
+                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
+                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance">0</strong></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div></a>
+                                <div class="box-footer p-0 no-border">
+                                    <div class="chart">
+                                        <canvas id="chartjs1" class="h-80"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+
+
+    <?php
+
+
+   }
+                            
+
+?>
+
 <?php 
 
 $sql = "SELECT * FROM `customer` c inner join customer_deposit e on e.customerid = c.id where c.id='".$id."' limit 1";
@@ -1133,21 +1237,9 @@ if(mysqli_num_rows($runsql)>0)
                         </div>
                         <div class="col-lg-9">
                             <!-- TEAMS -->
-                            
-                            <form id="form-side-left" action="/side/" method="POST">
-                                <input type="hidden" name="csrfmiddlewaretoken" value="D6AdBz0fvFJI5HxRhhxB5sRBrrUsKM1fdQJxPiqotpq54I8RwArUrQ6q0rrKUVHq">
-                                <input type="hidden" name="side" value="2">
-                            </form>
-                            <form id="form-side-right" action="/side/" method="POST">
-                                <input type="hidden" name="csrfmiddlewaretoken" value="D6AdBz0fvFJI5HxRhhxB5sRBrrUsKM1fdQJxPiqotpq54I8RwArUrQ6q0rrKUVHq">
-                                <input type="hidden" name="side" value="1">
-                            </form>
-
-                            <!-- ACCOUNT SECURITY -->
-
-                          
-
-                            <div class="col-md-12 ">
+                         
+                         
+   <div class="col-md-12">
                                 <div class="box">
                                   <div class="box-header">
                                     <h4 class="box-title">Tutorials and Materials</h4>
@@ -1162,95 +1254,6 @@ if(mysqli_num_rows($runsql)>0)
                                   </div>
                                 </div>
                             </div>
-
-                            <?php 
-
-                            $directrafferal = "select * from customer c inner join rafferal r on c.username = r.rafferalunderusername where c.id='".$id."' limit 1";
-                            $rundirectrafferal = mysqli_query($link,$directrafferal);
-                            if(mysqli_num_rows($rundirectrafferal)>0)
-                            {
-                              while($row = mysqli_fetch_assoc($rundirectrafferal))
-                              {
-                                $commission = $row['totalcommission'];
-                             
-
-                            ?>
-  <div class="row" style="position: relative;left: 50px;">
- <div class="col-lg-6 col-md-6" id="nextpage1">
-                            <div class="box pull-up" id="boxBalance">
-                                <a href=""><div class="box-body">
-                                    <div class="media align-items-center p-0">
-                                        <div class="text-center icon-dollar">
-                                            <a href="#">
-                                            <i class="fa fa-usd" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="Dailyrafferalhistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="flexbox align-items-center mt-5">
-                                        <div>
-
-                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
-                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance"><?php echo $commission; ?></strong></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <div class="box-footer p-0 no-border">
-                                    <div class="chart">
-                                        <canvas id="chartjs1" class="h-80"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-</div>
-
-<?php 
-   } 
- }else
-   {
-    ?>
-<div class="row" style="position: relative;left: 50px;">
- <div class="col-lg-6 col-md-6" id="nextpage">
-                            <div class="box pull-up" id="boxBalance">
-                                <a href=""><div class="box-body">
-                                    <div class="media align-items-center p-0">
-                                        <div class="text-center icon-dollar">
-                                            <a href="#">
-                                            <i class="fa fa-usd" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <h4 class="no-margin text-bold" style="color: #03a9f3;"><a href="DailyRoiHistory.php" style="color: #03a9f3;">Direct Rafferal</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="flexbox align-items-center mt-5">
-                                        <div>
-
-                                            <p class="no-margin font-weight-600 dollar-value" style="position: relative;top: 30px;left: 20px;">
-                                                 <span style="position: relative;left: 20px;">U$ <strong id="spanTotalBalance">0</strong></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <div class="box-footer p-0 no-border">
-                                    <div class="chart">
-                                        <canvas id="chartjs1" class="h-80"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-</div>
-
-
-    <?php
-
-   }
-                            
-
-?>
 
                         </div>
                     </div>
@@ -1355,7 +1358,7 @@ if(mysqli_num_rows($runsql)>0)
 
   <script src="./dist/sidebar-menu.js"></script>
   <script>
-    $.sidebarMenu($('.sidebar-menu'))
+   // $.sidebarMenu($('.sidebar-menu'))
   </script>
 <script type="text/javascript">
     
@@ -1458,9 +1461,12 @@ window.location.href = "DailyRoiHistory.php";
           $('#nextpage1').click(function(e)
     {
 
-window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission?>";
+window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission;?>";
+
     });
-      });
+  
+
+  });
 
 
 
@@ -1492,6 +1498,9 @@ window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $
  
  
 </style>
+ <script>
+    $.sidebarMenu($('.sidebar-menu'))
+  </script>
 
 </body>
 </html>

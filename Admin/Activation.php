@@ -51,9 +51,7 @@
                  <li>
                     <a href="showmaterials.php">show Material</a>
                 </li>
-                 <li>
-                    <a href="Activation.php">Activation Packages</a>
-                </li>
+                
                 
             </ul>
            
@@ -67,116 +65,145 @@
                         <i class="fas fa-align-left"></i>
                         </button>
 </nav>
-           <h3 style="color:white;position: relative;top: 50px;">Deposit Requests</h3>
+           
               <table class="table table-striped" style="position: relative;top: 50px;color: black;background: white;">
-
     
       <tr>
-        
-        <th>userid</th>
-        <th>status</th>
+        <th>S.No</th>
+        <th>title</th>
+        <th>discription</th>
          <th>Action</th>
       </tr>
-      	<tbody id="rezult">
 
+
+        <?php  $sql = "SELECT * FROM `activationpackage` a inner join customer c on c.id = a.customerid order by a.customerid DESC";
+        $run = mysqli_query($link,$sql);
+        if(mysqli_num_rows($run)> 0)
+        {
+            $i = 1;
+            while($row = mysqli_fetch_assoc($run))
+            {
+                ?>
+
+
+       
+                <tr>
+                   <td> <?php  echo $i++;?></td>
+            <td><?php echo $row['amount']?></td>
+            <td><?php echo $row['username']?></td>
+           <td><a href="activationpackage.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+            </tr>
+
+
+                <?php
+            }
+        } ?>
 
     </tbody>
 
 </table>
 
 
-<h3 style="color:white;position: relative;top: 50px;">Withdraw Requests</h3>
-              <table class="table table-striped" style="position: relative;top: 50px;color: black;background: white;">
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-    
-      <tr>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
         
-        <th>userid</th>
-        <th>status</th>
-         <th>Action</th>
-      </tr>
-      	<tbody id="rezultwithdraw">
+        <h4 class="modal-title">Rafferals</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered" style="background: white;">
+            <tr>
+                <th>S.NO</th>
+                <th>Date</th>
+                <th>Username</th>
+            </tr>
+            <tbody id="result"></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
-    </tbody>
+<div id="myModaldeposit" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
 
-</table>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Rafferals</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered" style="background: white;">
+            <tr>
+                 <th>S.NO</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>status</th>
+                <th>image</th>
+                <th>bitcoinaddress</th>
 
-	depositfetchdata();
-withdrawfetchdata();
-	function depositfetchdata()
-	{
-		$.ajax({
-				url:"updatedepositrequest.php",
-				method:"post",
-				
-				success:function(data)
-				{
-                    //alert(data);
-					$('#rezult').html(data);
-				}
+            </tr>
+            <tbody id="resultdeposit"></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-	});
-	}
-
-	function withdrawfetchdata()
-	{
-		$.ajax({
-				url:"updatewithdrawrequest.php",
-				method:"post",
-				
-				success:function(data)
-				{
-					$('#rezultwithdraw').html(data);
-				}
-
-	});
-	}
-	$(document).on('click','#updatewithdraw',function()
-	{
-
-			var id = $(this).attr('data-id');
-			var status = $('#status').val();
-			var main = $(this).attr('data-main');
-           // alert(id); alert(status); alert(main);
-
-			$.ajax({
-				url:"updatewithdrawrequest.php",
-				method:"post",
-				data:{id:id,status:status,main:main},
-				success:function(data)
-				{
-                //    alert(data);
-					withdrawfetchdata();
-				}
-			})
-	});
+  </div>
+</div>
 
 
 
-    $(document).on('click','#updatedeposit',function()
-    {
 
-            var id = $(this).attr('data-id');
-            var status = $('#status').val();
-            var main = $(this).attr('data-main');
-          
-          //  alert(id); alert(status); alert(main);
+<div id="myModalwithdraw" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
 
-            $.ajax({
-                url:"updatedepositrequest.php",
-                method:"post",
-                data:{id:id,status:status,main:main},
-                success:function(data)
-                {
-                //    alert(data);
-                    depositfetchdata();
-                }
-            })
-    });
-</script>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Rafferals</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered" id="tablewithraw" style="background: white;">
+            <tr>
+                 <th>S.NO</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>status</th>
+                
+                <th>bitcoinaddress</th>
+
+            </tr>
+            <tbody id="resultwithdraw"></tbody>
+            <tr>
+
+                <tr><input type="text" id="valuechanges"></tr>
+            </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 
@@ -364,14 +391,7 @@ a.article:hover {
     </style>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-  
 </body>
 
 </html>
