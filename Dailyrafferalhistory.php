@@ -276,6 +276,7 @@ else
         </aside>
         
 
+
 <?php 
 if(isset($_GET['rafferalcommission']))
 {
@@ -284,12 +285,15 @@ if(isset($_GET['rafferalcommission']))
 
 
 ?>
+
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
+
                        Daily Rafferal History
+
                        
                     </h1>
                     <ol class="breadcrumb">
@@ -299,7 +303,11 @@ if(isset($_GET['rafferalcommission']))
                         </li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
+
                     <button class="btn btn-success"><a href="withdraw.php?rafferalcommission=<?php echo $rafferalcommission; ?>" style="color: white;">Withdraw</a></button>
+
+
+                  
                 </section>
 
 
