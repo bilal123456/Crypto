@@ -13,7 +13,6 @@ require 'mail/src/PHPMailer.php';
 require 'mail/src/SMTP.php';
 
 if(isset($_POST['customerlogin']))
-
 {
 	$username   = $_POST['username'];
 	$firstname = $_POST['firstname'];
@@ -23,16 +22,11 @@ if(isset($_POST['customerlogin']))
 	$password = $_POST['password'];
  	$bitcoin = $_POST['bitcoin'];
  	$image = $_POST['img'];
-// 	 $image_temp =  $_FILES['img']['tmp_name'];
-// $image_type = $_FILES['img']['type'];
-// $image_name = $_FILES['img']['name'];
+
 @$rafferalref = $_POST['rafferalref'];
 
 $vkey = md5(time() . $username);
-
-
-           
-	 $sql = "select * from customer where username='".$username."'";
+$sql = "select * from customer where username='".$username."'";
 	$run = mysqli_query($link,$sql);
 	if(mysqli_num_rows($run) > 0)
 	{
@@ -41,11 +35,7 @@ $vkey = md5(time() . $username);
 	}
 	else
 	{
-
- //           $upload = move_uploaded_file($_FILES["img"]["tmp_name"],'customerimage/' . $_FILES['img']['name']);
- // $imagename = 'customerimage/'.$_FILES['img']['name'];
-
-		$todaydate = date("Y/m/d");
+$todaydate = date("Y/m/d");
 		$insert = "insert into customer(username,firstname,lastname,email,rafferal,password,bitcoinaddress,image,vkey,verified) values('".$username."','".$firstname."','".$lastname."','".$email."','".$rafferal."','".$password."','".$bitcoin."','s','".$vkey."','0')";
 
 
@@ -69,9 +59,6 @@ $vkey = md5(time() . $username);
 $phpMailer->isSMTP();
 $phpMailer->Host = "smtp.zoho.com";
 $phpMailer->SMTPAuth = true;
-
-
-
 $phpMailer->Username = "bilalraza203@gmail.com";
 $phpMailer->Password = "king5872123123";
 $phpMailer->SMTPSecure = "sls";
@@ -104,7 +91,6 @@ $phpMailer->send();
 	  window.location.href = 'Thankyou.php?username=$username&email=$email';
 	 </script>";
 
-		header("Location:home.php");
 	}
 }
 }

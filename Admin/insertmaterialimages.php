@@ -51,6 +51,9 @@
                  <li>
                     <a href="showmaterials.php">show Material</a>
                 </li>
+                 <li>
+                    <a href="Activation.php">Activation Packages</a>
+                </li>
                 
                 
             </ul>

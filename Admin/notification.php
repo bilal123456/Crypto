@@ -28,7 +28,6 @@
             </div>
  <ul class="list-unstyled components" style="color: white;">
                 
-               
                 <li class="active" class="arrow-down">
                     <a href="dashboard.php">Dashboard</a>
                 </li>
@@ -49,6 +48,9 @@
                 </li>
                  <li>
                     <a href="showmaterials.php">show Material</a>
+                </li>
+                 <li>
+                    <a href="Activation.php">Activation Packages</a>
                 </li>
                 
                 
