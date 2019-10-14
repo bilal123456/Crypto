@@ -357,8 +357,13 @@ else
                                                 <p></p><h4>Last Withdrawal: <spam class="badge badge-default"><?php echo $todaylastwithdrawal; ?>, <?php echo $timelastwithdrawal; ?></spam></h4><p></p>
                                             </div>
                                             <?php 
+
+
                                           }
                                         }
+
+                                     
+
 
                                             ?>
                                         </div>
