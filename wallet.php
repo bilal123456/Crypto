@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <?php session_start();
+
 include('Admin/Database/Connection.php');
+
+
 if($email = $_SESSION['email'])
 {
   $id = $_SESSION['id'];
@@ -14,7 +17,9 @@ else
 if(isset($_GET['wallet']))
 {
   $wallet = $_GET['wallet'];
+
   $sql  = "update `wallet` set WHERE `wallet`='".$wallet."' and `id`='".$id."'";
+
   $runsssssssssss = mysqli_query($link,$sql);
 
 }
@@ -102,7 +107,7 @@ if(isset($_GET['wallet']))
 
 
 </style>
-     
+
         
     <script type="text/javascript">
 
