@@ -213,6 +213,7 @@ else
         </a>
        
         <ul class="sidebar-submenu">
+          <li><a href="wallet.php"></i>Add Wallet </a></li>
            <li><a href="withdraw.php"></i>Withdraw </a></li>
            <li><a href="history.php"></i>Withdraw Report</a></li>
          

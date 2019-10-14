@@ -375,6 +375,29 @@ while($row=mysqli_fetch_assoc($run))
             $image_type = $_FILES['img']['type'];
             $image_name = $_FILES['img']['name'];
 
+            if($Amount == 10)
+            {
+            echo  $insertactivationpackage = "insert into activationpackage(amount,customerid,bitcoinaddress,todaydate) values('".$Amount."','".$id."','".$address."','".$date."')";
+              $runinsertacttivationpackage = mysqli_query($link,$insertactivationpackage);
+               echo "<script type='text/javascript'>
+            $(document).ready(function(e){
+              $('#alert').show();
+               // console.log(data);
+            var data = 'Your deposit request has been submitted successfully';
+                alert('your deposit request has been submitted successfully');
+                $('#success_message').html(data);
+                $('#success_message').css('color','white');
+
+              });
+            
+
+setInterval(function(){ window.location.href = 'home.php'; }, 3000);</script>";
+            }
+            else
+            {
+
+
+
 
            
              $upload = move_uploaded_file($_FILES["img"]["tmp_name"],'Customerdepositreceipt/' . $_FILES['img']['name']);
@@ -387,6 +410,47 @@ while($row=mysqli_fetch_assoc($run))
             $run = mysqli_query($link,$insert);
                 if($run)
                 {
+                  if($Amount >= 200 && $Amount < 650)
+            {
+                $dailyRoiadd = 0.46;
+                $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
+              $insertroiaddrun = mysqli_query($link,$insertroiadd);
+            }
+            else  if($Amount >= 650 && $Amount < 1500)
+            {
+ $dailyRoiadd = 1.73;
+$insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
+              $insertroiaddrun =  mysqli_query($link,$insertroiadd);
+            }  
+             else  if($Amount >= 1500 && $Amount < 2500)
+            {
+ $dailyRoiadd = 4.5;
+  $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
+               $insertroiaddrun = mysqli_query($link,$insertroiadd);
+            }
+             else  if($Amount >= 2500 && $Amount < 5000)
+            {
+                 $dailyRoiadd = 7.5;
+                 $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
+               $insertroiaddrun = mysqli_query($link,$insertroiadd);
+               }
+               else  if($Amount >= 5000)
+            {
+               $dailyRoiadd = 16.6;  
+              $insertroiadd = "INSERT INTO `dailyroi`(`start_date`, `current_date`, `addroi`, `startday`, `endday`, `dailyroiadd`, `status`,`customerid`) VALUES ('".$date."','".$date."','0','0','1200','".$dailyRoiadd."','1','".$id."')";
+               $insertroiaddrun = mysqli_query($link,$insertroiadd);
+            }
+
+           $checkrafferal = "SELECT * FROM `rafferal` where newregisterusername='".$fetchusername."' LIMIT 1
+";
+$runcheckrafferal = mysqli_query($link,$checkrafferal);
+if(mysqli_num_rows($runcheckrafferal)>0)
+{
+    while($row = mysqli_fetch_assoc($runcheckrafferal))
+    {
+        $getaddrafferalcommission = $row['rafferalunderusername'];
+    }
+}
           if($Amount >= 200 && $Amount < 650)
             {
                 $bonus = 24;
@@ -609,25 +673,27 @@ while($row=mysqli_fetch_assoc($run))
                  $updaterecord = "update rafferal set totalcommission='".$totalcommissioncount."' where rafferalunderusername='".$getaddrafferalcommission."'";
                  $runupdaterecord = mysqli_query($link,$updaterecord);
             }
+              }
             
-            
 
 
-          echo "<script>
-
-            $('#alert').show();
+          echo "<script type='text/javascript'>
+            $(document).ready(function(e){
+              $('#alert').show();
                // console.log(data);
             var data = 'Your deposit request has been submitted successfully';
-               // alert('your deposit request has been submitted successfully');
+                alert('your deposit request has been submitted successfully');
                 $('#success_message').html(data);
                 $('#success_message').css('color','white');
 
+              });
+            
+
+setInterval(function(){ window.location.href = 'home.php'; }, 3000);</script>";
 
 
-        window.location.href = 'home.php';
-
-    }, 5000);</script>";
-
+}
+}
 
           ?>    
            
