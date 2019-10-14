@@ -390,8 +390,7 @@ while($row=mysqli_fetch_assoc($run))
 
               });
             
-
-setInterval(function(){ window.location.href = 'home.php'; }, 3000);</script>";
+</script>";
             }
             else
             {
@@ -676,7 +675,6 @@ if(mysqli_num_rows($runcheckrafferal)>0)
               }
             
 
-
           echo "<script type='text/javascript'>
             $(document).ready(function(e){
               $('#alert').show();
@@ -689,8 +687,7 @@ if(mysqli_num_rows($runcheckrafferal)>0)
               });
             
 
-setInterval(function(){ window.location.href = 'home.php'; }, 3000);</script>";
-
+</script>";
 
 }
 }

@@ -1081,8 +1081,11 @@ include('Admin/Database/Connection.php');
                              
 
                             ?>
+
   <div class="row" style="position: relative;left: 380px;">
 <div class="col-lg-12" id="nextpage1">
+
+
                             <div class="box pull-up" id="boxBalance">
                                 <a href=""><div class="box-body">
                                     <div class="media align-items-center p-0">
@@ -1117,10 +1120,17 @@ include('Admin/Database/Connection.php');
    } 
  }else
    {
+
    $commission = 0;
     ?>
   <div class="row" style="position: relative;left: 380px;">
   <div class="col-lg-12" id="nextpage1">
+
+
+
+
+    ?>
+
                             <div class="box pull-up" id="boxBalance">
                                 <a href=""><div class="box-body">
                                     <div class="media align-items-center p-0">
@@ -1160,6 +1170,7 @@ include('Admin/Database/Connection.php');
                             
 
 ?>
+
 
 <?php 
 
@@ -1237,8 +1248,7 @@ if(mysqli_num_rows($runsql)>0)
                         </div>
                         <div class="col-lg-9">
                             <!-- TEAMS -->
-                         
-                         
+
    <div class="col-md-12">
                                 <div class="box">
                                   <div class="box-header">
@@ -1265,77 +1275,7 @@ if(mysqli_num_rows($runsql)>0)
 
         
           
-<div class="modal fade modal-general" id="modal-general" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="modalDetailTitle">System rules - Notes</h4>
-      </div>
-      <div class="modal-body" id="bodyDetailsModal">
-        <img src="/static/assets/img/release_system_notes_en_us.b4f3d71d1b98.jpg" class="img-responsive document">
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-        
-
-        
-
-<div class="modal fade modal-general" id="modal-close-general" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="modalDetailTitle">Press release</h4>
-      </div>
-      <div class="modal-body" id="bodyDetailsModal">
-        <img width="250" src="/static/assets/img/logo-small.3ea85e78279e.png" class="img-responsive document">
-        <p>
-            It was a pleasure to have you on our platform.<br><br>
-            Your cycle with the FX Trading Corporation comes to an end, receiving until this date, the importance of the maximum percentage of gain or the full recovery of your investment.
-            We appreciate the partnership over these months.<br><br>
-            Confident that we comply with our obligations, we are available to resolve any question through the support channel.
-        </p>
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Fechar</button>
-          <button type="button" onclick="setHideModal()" class="btn btn-default pull-right" data-dismiss="modal" style="margin-right:10px;">I Don't want see more this information</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        
-
-<div class="modal fade modal-general" id="modal-close-general" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="modalDetailTitle">Press release</h4>
-      </div>
-      <div class="modal-body" id="bodyDetailsModal">
-        <img width="250" src="/static/assets/img/logo-small.3ea85e78279e.png" class="img-responsive document">
-        <p>
-            It was a pleasure to have you on our platform.<br><br>
-            Your cycle with the FX Trading Corporation comes to an end, receiving until this date, the importance of the maximum percentage of gain or the full recovery of your investment.
-            We appreciate the partnership over these months.<br><br>
-            Confident that we comply with our obligations, we are available to resolve any question through the support channel.
-        </p>
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Fechar</button>
-          <button type="button" onclick="setHideModal()" class="btn btn-default pull-right" data-dismiss="modal" style="margin-right:10px;">I Don't want see more this information</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -1461,7 +1401,11 @@ window.location.href = "DailyRoiHistory.php";
           $('#nextpage1').click(function(e)
     {
 
+
 window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $commission;?>";
+
+
+
 
     });
   
@@ -1498,9 +1442,12 @@ window.location.href = "Dailyrafferalhistory.php?rafferalcommission=<?php echo $
  
  
 </style>
+
  <script>
     $.sidebarMenu($('.sidebar-menu'))
   </script>
+
+
 
 </body>
 </html>
