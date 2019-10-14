@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <?php session_start();
+
 $link = mysqli_connect("localhost", "root", "pakistan123", "cryptostock");
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+
 if($email = $_SESSION['email'])
 {
   $id = $_SESSION['id'];
@@ -105,7 +107,7 @@ if(isset($_GET['wallet']))
 
 
 </style>
-     
+
         
     <script type="text/javascript">
 

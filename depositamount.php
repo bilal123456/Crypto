@@ -388,10 +388,8 @@ while($row=mysqli_fetch_assoc($run))
                 $('#success_message').html(data);
                 $('#success_message').css('color','white');
 
-              });
-            
+              });";
 
-setInterval(function(){ window.location.href = 'home.php'; }, 3000);</script>";
             }
             else
             {
@@ -676,7 +674,6 @@ if(mysqli_num_rows($runcheckrafferal)>0)
               }
             
 
-
           echo "<script type='text/javascript'>
             $(document).ready(function(e){
               $('#alert').show();
@@ -687,9 +684,7 @@ if(mysqli_num_rows($runcheckrafferal)>0)
                 $('#success_message').css('color','white');
 
               });
-            
-
-setInterval(function(){ window.location.href = 'home.php'; }, 3000);</script>";
+";
 
 
 }
